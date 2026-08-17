@@ -1,2 +1,11 @@
 .DS_Store
 _to_delete/
+foto.zip
+# originalfiler i full oppløsning skal aldri publiseres
+/*.jpg
+/*.JPG
+/*.jpeg
+/*.tif
+/*.tiff
+/*.NEF
+/*.ARW

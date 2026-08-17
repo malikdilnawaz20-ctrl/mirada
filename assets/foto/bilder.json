@@ -1,0 +1,138 @@
+[
+ {
+  "slug": "takehavet",
+  "tittel": "Tåkehavet",
+  "sted": "Åssiden i solnedgang",
+  "bredde": 4932,
+  "hoyde": 3083,
+  "forhold": 1.6
+ },
+ {
+  "slug": "nordlys",
+  "tittel": "Nordlys over Fjell",
+  "sted": "25. oktober",
+  "bredde": 5044,
+  "hoyde": 2996,
+  "forhold": 1.684
+ },
+ {
+  "slug": "ypsilon-rim",
+  "tittel": "Ypsilon i rim",
+  "sted": "Drammen, vinternatt",
+  "bredde": 5077,
+  "hoyde": 3173,
+  "forhold": 1.6
+ },
+ {
+  "slug": "ypsilon-motlys",
+  "tittel": "Motlys",
+  "sted": "Ypsilon",
+  "bredde": 1732,
+  "hoyde": 3016,
+  "forhold": 0.574
+ },
+ {
+  "slug": "benken",
+  "tittel": "Benken",
+  "sted": "Bragernesåsen, 18. oktober",
+  "bredde": 11091,
+  "hoyde": 6932,
+  "forhold": 1.6
+ },
+ {
+  "slug": "blatimen",
+  "tittel": "Blåtimen",
+  "sted": "Elvebredden",
+  "bredde": 7360,
+  "hoyde": 4912,
+  "forhold": 1.498
+ },
+ {
+  "slug": "kirken-var",
+  "tittel": "Kirsebærtid",
+  "sted": "Bragernes kirke, 11. mai",
+  "bredde": 5851,
+  "hoyde": 3657,
+  "forhold": 1.6
+ },
+ {
+  "slug": "kirken-kveld",
+  "tittel": "Spiret",
+  "sted": "Bragernes, 15. september",
+  "bredde": 6664,
+  "hoyde": 4587,
+  "forhold": 1.453
+ },
+ {
+  "slug": "solsoyle",
+  "tittel": "Solsøyle",
+  "sted": "Skoger",
+  "bredde": 6060,
+  "hoyde": 3788,
+  "forhold": 1.6
+ },
+ {
+  "slug": "pipedrom",
+  "tittel": "Pipedrøm",
+  "sted": "Fjell, 30. desember",
+  "bredde": 4875,
+  "hoyde": 4875,
+  "forhold": 1.0
+ },
+ {
+  "slug": "lysspor",
+  "tittel": "Lysspor",
+  "sted": "Nattarbeid",
+  "bredde": 7952,
+  "hoyde": 4970,
+  "forhold": 1.6
+ },
+ {
+  "slug": "elva-morgen",
+  "tittel": "Elva om morgenen",
+  "sted": "Drammenselva",
+  "bredde": 7952,
+  "hoyde": 5304,
+  "forhold": 1.499
+ },
+ {
+  "slug": "fjell-host",
+  "tittel": "74–81",
+  "sted": "Fjell om høsten",
+  "bredde": 5579,
+  "hoyde": 3487,
+  "forhold": 1.6
+ },
+ {
+  "slug": "utsikt-fjell",
+  "tittel": "Utsikt",
+  "sted": "Fra Fjell",
+  "bredde": 7045,
+  "hoyde": 3778,
+  "forhold": 1.865
+ },
+ {
+  "slug": "brua",
+  "tittel": "Brua",
+  "sted": "Drammen, natt",
+  "bredde": 4414,
+  "hoyde": 3310,
+  "forhold": 1.334
+ },
+ {
+  "slug": "austad",
+  "tittel": "Austad gård",
+  "sted": "Vinter",
+  "bredde": 5200,
+  "hoyde": 4088,
+  "forhold": 1.272
+ },
+ {
+  "slug": "bygarden",
+  "tittel": "Bygården",
+  "sted": "Drammen sentrum",
+  "bredde": 5276,
+  "hoyde": 3957,
+  "forhold": 1.333
+ }
+]
