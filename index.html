@@ -1,0 +1,856 @@
+<!DOCTYPE html>
+<html lang="nb">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Mirada Nova — Kunst- og kulturforening</title>
+<meta name="description" content="Mirada Nova er en kunst- og kulturforening som arbeider i møtet mellom fotografi, bevegelse og kulturarv. Prosjekt 2026: Usynlige rom.">
+<meta name="theme-color" content="#0b0b0d">
+<meta name="copyright" content="© Shujah Malik — alle fotografier. Alle rettigheter forbeholdt.">
+<meta name="author" content="Mirada Nova Kunst- og kulturforening">
+
+<!-- Open Graph / deling -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="Mirada Nova — Kunst- og kulturforening">
+<meta property="og:description" content="Der kunst møter uttrykk. Prosjekt 2026: Usynlige rom — vi søker statister.">
+<meta property="og:locale" content="nb_NO">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' fill='%230b0b0d'/><circle cx='50' cy='50' r='26' fill='none' stroke='%23c9a227' stroke-width='4'/><circle cx='50' cy='50' r='9' fill='%23c9a227'/></svg>">
+
+<style>
+:root{
+  --bg:#0b0b0d;
+  --bg-2:#101013;
+  --bg-3:#15151a;
+  --ink:#f4f1ea;
+  --ink-dim:#a9a49b;
+  --ink-faint:#6f6a63;
+  --gold:#c9a227;
+  --gold-soft:#e0be55;
+  --line:rgba(244,241,234,.13);
+  --maxw:1160px;
+  --r:2px;
+}
+
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  background:var(--bg);
+  color:var(--ink);
+  font-family:'Inter',system-ui,-apple-system,'Segoe UI',sans-serif;
+  font-weight:300;
+  font-size:17px;
+  line-height:1.7;
+  -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+}
+img{max-width:100%;display:block}
+a{color:inherit}
+
+h1,h2,h3,.display{
+  font-family:'Cormorant Garamond',Georgia,serif;
+  font-weight:300;
+  line-height:1.1;
+  letter-spacing:.005em;
+  margin:0;
+}
+
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 28px}
+.eyebrow{
+  font-size:11px;letter-spacing:.34em;text-transform:uppercase;
+  color:var(--gold);font-weight:500;margin:0 0 22px;
+}
+.eyebrow.muted{color:var(--ink-faint)}
+
+/* ---------- Kornstruktur ---------- */
+body::after{
+  content:"";position:fixed;inset:0;pointer-events:none;z-index:9999;opacity:.05;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='3'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+/* ---------- Navigasjon ---------- */
+header{
+  position:fixed;top:0;left:0;right:0;z-index:100;
+  transition:background .4s ease,border-color .4s ease,backdrop-filter .4s;
+  border-bottom:1px solid transparent;
+}
+header.scrolled{
+  background:rgba(11,11,13,.86);
+  backdrop-filter:blur(14px);
+  -webkit-backdrop-filter:blur(14px);
+  border-bottom-color:var(--line);
+}
+.nav{display:flex;align-items:center;justify-content:space-between;height:76px}
+.brand{display:flex;align-items:center;gap:12px;text-decoration:none}
+.brand svg{width:26px;height:26px;flex:none}
+.brand-name{font-family:'Cormorant Garamond',serif;font-size:21px;letter-spacing:.18em;text-transform:uppercase}
+.nav-links{display:flex;gap:34px;align-items:center;list-style:none;margin:0;padding:0}
+.nav-links a{
+  text-decoration:none;font-size:13px;letter-spacing:.13em;text-transform:uppercase;
+  color:var(--ink-dim);transition:color .25s;position:relative;padding:6px 0;
+}
+.nav-links a::after{
+  content:"";position:absolute;left:0;bottom:0;height:1px;width:0;background:var(--gold);transition:width .3s ease;
+}
+.nav-links a:hover{color:var(--ink)}
+.nav-links a:hover::after{width:100%}
+.nav-cta{
+  border:1px solid var(--gold);color:var(--gold)!important;padding:10px 20px!important;
+  border-radius:var(--r);transition:background .3s,color .3s;
+}
+.nav-cta::after{display:none!important}
+.nav-cta:hover{background:var(--gold);color:#0b0b0d!important}
+
+.burger{display:none;background:none;border:0;padding:10px;cursor:pointer}
+.burger span{display:block;width:24px;height:1.5px;background:var(--ink);margin:5px 0;transition:.3s}
+.burger.open span:nth-child(1){transform:translateY(6.5px) rotate(45deg)}
+.burger.open span:nth-child(2){opacity:0}
+.burger.open span:nth-child(3){transform:translateY(-6.5px) rotate(-45deg)}
+
+@media(max-width:880px){
+  .burger{display:block}
+  .nav-links{
+    position:fixed;inset:76px 0 auto 0;flex-direction:column;gap:0;
+    background:rgba(11,11,13,.98);backdrop-filter:blur(20px);
+    border-bottom:1px solid var(--line);
+    max-height:0;overflow:hidden;transition:max-height .4s ease;
+  }
+  .nav-links.open{max-height:420px}
+  .nav-links li{width:100%;border-top:1px solid var(--line)}
+  .nav-links a{display:block;padding:18px 28px;font-size:14px}
+  .nav-cta{border:0;margin:0;color:var(--gold)!important}
+}
+
+/* ---------- Hero ---------- */
+.hero{
+  min-height:100svh;display:flex;align-items:center;position:relative;
+  padding:120px 0 80px;overflow:hidden;
+}
+.hero-bg{
+  position:absolute;inset:0;z-index:0;
+  background:
+    radial-gradient(60% 55% at 72% 30%, rgba(201,162,39,.16), transparent 65%),
+    radial-gradient(45% 45% at 12% 78%, rgba(120,90,200,.10), transparent 70%),
+    linear-gradient(180deg,#0b0b0d 0%,#0e0e12 55%,#0b0b0d 100%);
+}
+.hero-bg::before{
+  content:"";position:absolute;inset:0;
+  background-image:linear-gradient(var(--line) 1px,transparent 1px),linear-gradient(90deg,var(--line) 1px,transparent 1px);
+  background-size:110px 110px;
+  mask-image:radial-gradient(70% 60% at 50% 45%,#000,transparent 78%);
+  -webkit-mask-image:radial-gradient(70% 60% at 50% 45%,#000,transparent 78%);
+  opacity:.5;
+}
+/* lysstråle som avdekker "rommet" */
+.beam{
+  position:absolute;top:-20%;right:8%;width:38vw;height:140%;z-index:0;
+  background:linear-gradient(180deg,rgba(201,162,39,.10),rgba(201,162,39,0) 72%);
+  transform:rotate(14deg);filter:blur(28px);animation:breathe 11s ease-in-out infinite;
+}
+@keyframes breathe{0%,100%{opacity:.55}50%{opacity:1}}
+
+.hero .wrap{position:relative;z-index:1}
+.hero h1{
+  font-size:clamp(3.3rem,10vw,8.2rem);
+  letter-spacing:.01em;margin:0 0 6px;
+}
+.hero h1 em{font-style:italic;color:var(--gold-soft)}
+.hero-sub{
+  font-family:'Cormorant Garamond',serif;font-style:italic;
+  font-size:clamp(1.3rem,3vw,2rem);color:var(--ink-dim);margin:0 0 30px;
+}
+.hero-lead{max-width:56ch;color:var(--ink-dim);font-size:1.05rem;margin:0 0 42px}
+.hero-actions{display:flex;flex-wrap:wrap;gap:16px}
+
+.btn{
+  display:inline-flex;align-items:center;gap:10px;
+  padding:16px 30px;border-radius:var(--r);
+  font-size:12.5px;letter-spacing:.16em;text-transform:uppercase;font-weight:500;
+  text-decoration:none;cursor:pointer;border:1px solid var(--gold);
+  transition:transform .25s ease,background .3s,color .3s,box-shadow .3s;
+}
+.btn-primary{background:var(--gold);color:#0b0b0d}
+.btn-primary:hover{background:var(--gold-soft);border-color:var(--gold-soft);transform:translateY(-2px);box-shadow:0 12px 30px -12px rgba(201,162,39,.6)}
+.btn-ghost{background:transparent;color:var(--ink);border-color:var(--line)}
+.btn-ghost:hover{border-color:var(--ink);transform:translateY(-2px)}
+
+.scroll-hint{
+  position:absolute;bottom:34px;left:50%;transform:translateX(-50%);z-index:1;
+  font-size:10px;letter-spacing:.3em;text-transform:uppercase;color:var(--ink-faint);
+  display:flex;flex-direction:column;align-items:center;gap:10px;
+}
+.scroll-hint::after{content:"";width:1px;height:46px;background:linear-gradient(var(--ink-faint),transparent);animation:drop 2.4s ease-in-out infinite}
+@keyframes drop{0%,100%{opacity:.2;transform:scaleY(.5)}50%{opacity:1;transform:scaleY(1)}}
+@media(max-width:880px){.scroll-hint{display:none}}
+
+/* ---------- Seksjoner ---------- */
+section{padding:110px 0;position:relative}
+.section-head{max-width:66ch;margin-bottom:56px}
+.section-head h2{font-size:clamp(2.2rem,5.2vw,3.6rem);margin-bottom:20px}
+.section-head p{color:var(--ink-dim);margin:0}
+.alt{background:var(--bg-2);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+
+.lead{font-size:1.18rem;color:var(--ink);max-width:62ch}
+.muted{color:var(--ink-dim)}
+
+.two-col{display:grid;grid-template-columns:1.15fr .85fr;gap:70px;align-items:start}
+@media(max-width:900px){.two-col{grid-template-columns:1fr;gap:44px}}
+
+.facts{list-style:none;margin:0;padding:0;border-top:1px solid var(--line)}
+.facts li{padding:20px 0;border-bottom:1px solid var(--line);display:flex;gap:20px;align-items:baseline}
+.facts .k{flex:none;width:112px;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--gold)}
+.facts .v{color:var(--ink-dim)}
+
+blockquote{
+  margin:44px 0 0;padding:0 0 0 28px;border-left:1px solid var(--gold);
+  font-family:'Cormorant Garamond',serif;font-style:italic;font-size:1.6rem;
+  line-height:1.45;color:var(--ink);max-width:44ch;
+}
+blockquote cite{display:block;margin-top:16px;font-family:'Inter',sans-serif;font-style:normal;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--ink-faint)}
+
+/* ---------- Prosjektkort ---------- */
+.projects{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:26px}
+.card{
+  background:var(--bg-3);border:1px solid var(--line);border-radius:var(--r);
+  padding:34px 30px 30px;position:relative;overflow:hidden;
+  transition:border-color .35s,transform .35s,background .35s;
+}
+.card::before{
+  content:"";position:absolute;top:0;left:0;right:0;height:1px;
+  background:linear-gradient(90deg,transparent,var(--gold),transparent);
+  opacity:0;transition:opacity .4s;
+}
+.card:hover{border-color:rgba(201,162,39,.4);transform:translateY(-4px)}
+.card:hover::before{opacity:1}
+.card .year{font-size:11px;letter-spacing:.22em;color:var(--gold);text-transform:uppercase}
+.card h3{font-size:1.85rem;margin:12px 0 14px}
+.card p{color:var(--ink-dim);font-size:.97rem;margin:0}
+.card .tag{
+  display:inline-block;margin-top:22px;font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;
+  color:var(--ink-faint);border:1px solid var(--line);padding:6px 12px;border-radius:var(--r);
+}
+.card.featured{background:linear-gradient(160deg,rgba(201,162,39,.09),rgba(21,21,26,1) 55%);border-color:rgba(201,162,39,.3)}
+
+/* ---------- Usynlige rom ---------- */
+#usynlige-rom{background:var(--bg-2);border-top:1px solid var(--line)}
+.ur-hero{
+  border:1px solid var(--line);border-radius:var(--r);
+  background:
+    radial-gradient(80% 100% at 85% 0%, rgba(201,162,39,.14), transparent 60%),
+    linear-gradient(180deg,#101014,#0c0c0f);
+  padding:clamp(38px,6vw,72px);margin-bottom:60px;position:relative;overflow:hidden;
+}
+.ur-hero h2{font-size:clamp(2.6rem,7vw,5rem);margin:0 0 18px}
+.ur-hero .kicker{font-size:11px;letter-spacing:.32em;text-transform:uppercase;color:var(--gold);margin-bottom:22px}
+.ur-hero p{max-width:60ch;color:var(--ink-dim);margin:0 0 10px}
+.doors{position:absolute;inset:0;pointer-events:none;opacity:.35}
+.doors span{
+  position:absolute;bottom:0;width:78px;height:150px;
+  border:1px solid rgba(244,241,234,.14);border-bottom:0;border-radius:44px 44px 0 0;
+}
+.doors span:nth-child(1){right:6%;height:190px}
+.doors span:nth-child(2){right:16%;height:130px;opacity:.6}
+.doors span:nth-child(3){right:25%;height:100px;opacity:.35}
+@media(max-width:760px){.doors{display:none}}
+
+.steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:30px;margin-top:10px}
+.step{border-top:1px solid var(--line);padding-top:22px}
+.step .n{font-family:'Cormorant Garamond',serif;font-size:2.4rem;color:var(--gold);line-height:1}
+.step h4{margin:10px 0 8px;font-size:1.05rem;font-weight:500;letter-spacing:.02em}
+.step p{margin:0;color:var(--ink-dim);font-size:.94rem}
+
+/* ---------- Galleri / bildebeskyttelse ---------- */
+.gallery{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:18px;margin-top:56px}
+.photo{
+  position:relative;overflow:hidden;border:1px solid var(--line);border-radius:var(--r);
+  background:var(--bg-3);aspect-ratio:4/5;
+  -webkit-user-select:none;user-select:none;-webkit-touch-callout:none;
+}
+.photo img{
+  width:100%;height:100%;object-fit:cover;
+  -webkit-user-drag:none;user-drag:none;pointer-events:none;
+  transition:transform .9s cubic-bezier(.22,1,.36,1),filter .6s;
+  filter:saturate(.9) contrast(1.03);
+}
+.photo:hover img{transform:scale(1.04)}
+/* usynlig lag over bildet – hindrer «lagre bilde som» ved drag/langtrykk */
+.photo .shield{position:absolute;inset:0;z-index:2;background:transparent}
+.photo .credit{
+  position:absolute;left:0;right:0;bottom:0;z-index:3;
+  padding:34px 16px 12px;
+  background:linear-gradient(transparent,rgba(11,11,13,.88));
+  font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-dim);
+  display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;
+}
+.photo .credit b{color:var(--gold);font-weight:500}
+/* diskret vannmerke */
+.photo::after{
+  content:"© Shujah Malik";position:absolute;top:12px;right:12px;z-index:3;
+  font-size:9.5px;letter-spacing:.18em;text-transform:uppercase;
+  color:rgba(244,241,234,.42);text-shadow:0 1px 3px rgba(0,0,0,.8);
+  pointer-events:none;
+}
+.photo.empty{
+  display:flex;align-items:center;justify-content:center;text-align:center;
+  border-style:dashed;color:var(--ink-faint);font-size:12px;letter-spacing:.14em;
+  text-transform:uppercase;padding:24px;
+}
+.photo.empty::after{content:none}
+.copyright-note{
+  margin-top:26px;padding:18px 20px;border:1px solid var(--line);border-radius:var(--r);
+  background:rgba(201,162,39,.05);color:var(--ink-dim);font-size:.92rem;
+}
+.copyright-note strong{color:var(--ink)}
+
+/* ---------- Skjema ---------- */
+#statist{background:var(--bg)}
+.form-shell{
+  display:grid;grid-template-columns:.85fr 1.15fr;gap:64px;align-items:start;
+}
+@media(max-width:960px){.form-shell{grid-template-columns:1fr;gap:44px}}
+.form-card{
+  background:var(--bg-3);border:1px solid var(--line);border-radius:var(--r);
+  padding:clamp(28px,4vw,44px);
+}
+.field{margin-bottom:22px}
+.field label{
+  display:block;font-size:11px;letter-spacing:.18em;text-transform:uppercase;
+  color:var(--ink-dim);margin-bottom:9px;
+}
+.field .req{color:var(--gold)}
+.field input,.field select,.field textarea{
+  width:100%;background:#0b0b0d;border:1px solid var(--line);border-radius:var(--r);
+  color:var(--ink);font-family:inherit;font-size:16px;font-weight:300;
+  padding:14px 15px;transition:border-color .25s,box-shadow .25s;
+}
+.field textarea{min-height:120px;resize:vertical;line-height:1.6}
+.field input:focus,.field select:focus,.field textarea:focus{
+  outline:none;border-color:var(--gold);box-shadow:0 0 0 3px rgba(201,162,39,.13);
+}
+.field .hint{font-size:12.5px;color:var(--ink-faint);margin-top:7px}
+.row{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+@media(max-width:560px){.row{grid-template-columns:1fr}}
+
+fieldset{border:1px solid var(--line);border-radius:var(--r);padding:18px 18px 8px;margin:0 0 22px}
+legend{font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--ink-dim);padding:0 8px}
+.check{display:flex;gap:12px;align-items:flex-start;margin-bottom:12px;font-size:.95rem;color:var(--ink-dim);cursor:pointer}
+.check input{width:18px;height:18px;flex:none;margin-top:3px;accent-color:var(--gold)}
+
+.form-status{margin-top:18px;font-size:.95rem;display:none;padding:14px 16px;border-radius:var(--r)}
+.form-status.ok{display:block;background:rgba(201,162,39,.1);border:1px solid rgba(201,162,39,.4);color:var(--gold-soft)}
+.form-status.err{display:block;background:rgba(200,70,70,.1);border:1px solid rgba(200,70,70,.45);color:#e79191}
+.form-status.info{display:block;background:rgba(244,241,234,.05);border:1px solid var(--line);color:var(--ink-dim)}
+.hp{position:absolute;left:-9999px;opacity:0}
+
+.what-is{border-top:1px solid var(--line);margin-top:28px;padding-top:24px}
+.what-is h4{margin:0 0 10px;font-size:1rem;font-weight:500}
+.what-is p{margin:0 0 14px;color:var(--ink-dim);font-size:.95rem}
+
+/* ---------- Kontakt / footer ---------- */
+footer{background:var(--bg-2);border-top:1px solid var(--line);padding:76px 0 40px}
+.foot-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:44px}
+@media(max-width:780px){.foot-grid{grid-template-columns:1fr;gap:34px}}
+footer h4{font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin:0 0 16px;font-weight:500}
+footer p,footer a{color:var(--ink-dim);text-decoration:none;font-size:.95rem}
+footer a:hover{color:var(--ink)}
+footer ul{list-style:none;margin:0;padding:0}
+footer li{margin-bottom:10px}
+.foot-bottom{
+  margin-top:56px;padding-top:24px;border-top:1px solid var(--line);
+  display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;
+  font-size:12px;color:var(--ink-faint);
+}
+
+/* ---------- Reveal ---------- */
+.reveal{opacity:0;transform:translateY(26px);transition:opacity .8s cubic-bezier(.22,1,.36,1),transform .8s cubic-bezier(.22,1,.36,1)}
+.reveal.in{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){
+  .reveal{opacity:1;transform:none;transition:none}
+  .beam,.scroll-hint::after{animation:none}
+  html{scroll-behavior:auto}
+}
+::selection{background:var(--gold);color:#0b0b0d}
+:focus-visible{outline:2px solid var(--gold);outline-offset:3px}
+.skip{position:absolute;left:-9999px}
+.skip:focus{left:16px;top:16px;z-index:200;background:var(--gold);color:#0b0b0d;padding:12px 18px;border-radius:var(--r)}
+</style>
+</head>
+<body>
+<a class="skip" href="#hovedinnhold">Hopp til hovedinnhold</a>
+
+<header id="header">
+  <div class="wrap nav">
+    <a class="brand" href="#">
+      <svg viewBox="0 0 100 100" aria-hidden="true"><circle cx="50" cy="50" r="34" fill="none" stroke="#c9a227" stroke-width="3"/><circle cx="50" cy="50" r="12" fill="#c9a227"/></svg>
+      <span class="brand-name">Mirada Nova</span>
+    </a>
+    <button class="burger" id="burger" aria-label="Åpne meny" aria-expanded="false" aria-controls="nav-links">
+      <span></span><span></span><span></span>
+    </button>
+    <ul class="nav-links" id="nav-links">
+      <li><a href="#om">Om oss</a></li>
+      <li><a href="#prosjekter">Prosjekter</a></li>
+      <li><a href="#usynlige-rom">Usynlige rom</a></li>
+      <li><a href="#kontakt">Kontakt</a></li>
+      <li><a class="nav-cta" href="#statist">Bli statist</a></li>
+    </ul>
+  </div>
+</header>
+
+<main id="hovedinnhold">
+
+<!-- ============ HERO ============ -->
+<section class="hero" id="topp">
+  <div class="hero-bg"></div>
+  <div class="beam"></div>
+  <div class="wrap">
+    <p class="eyebrow">Kunst- og kulturforening</p>
+    <h1>Mirada<br><em>Nova</em></h1>
+    <p class="hero-sub">Et nytt blikk — der kunst møter uttrykk.</p>
+    <p class="hero-lead">
+      Vi arbeider i møtet mellom fotografi, bevegelse og kulturarv. Dette er mer enn kurs:
+      det er lidenskap, fellesskap og fortellinger som fortjener å bli sett.
+      I 2026 åpner vi dørene til <strong>Usynlige rom</strong>.
+    </p>
+    <div class="hero-actions">
+      <a class="btn btn-primary" href="#statist">Meld deg som statist</a>
+      <a class="btn btn-ghost" href="#usynlige-rom">Les om prosjektet</a>
+    </div>
+  </div>
+  <div class="scroll-hint" aria-hidden="true">Bla ned</div>
+</section>
+
+<!-- ============ OM OSS ============ -->
+<section id="om" class="alt">
+  <div class="wrap">
+    <div class="two-col">
+      <div class="reveal">
+        <p class="eyebrow">Om foreningen</p>
+        <h2 style="font-size:clamp(2.2rem,5.2vw,3.6rem);margin-bottom:26px">Vi gir det oversette et rom</h2>
+        <p class="lead">
+          <strong>Mirada Nova</strong> betyr «et nytt blikk». Navnet er også arbeidsmetoden vår:
+          vi ser en gang til på det de fleste går forbi — mennesker, steder, tradisjoner og bevegelser
+          som sjelden får plass i det offentlige rommet.
+        </p>
+        <p class="muted">
+          Foreningen samler fotografer, dansere, skuespillere, håndverkere og frivillige som deler
+          den samme interessen: å fortelle sanne historier med kunstneriske virkemidler.
+          Vi holder workshops og åpne samlinger, men arbeidet vårt stopper ikke der.
+          Kursene er inngangen — prosjektene er målet.
+        </p>
+        <p class="muted">
+          Det visuelle uttrykket vårt bæres i stor grad av bilder fanget av fotografen
+          <strong>Shujah Malik</strong>, som gjennom mange år har arbeidet med portrett, dokumentar
+          og kulturarv. I samarbeid med <strong>St. Lazarus Corp</strong> leverer vi kunst og
+          kulturarv i to former: <em>bilder</em> og <em>bevegelse</em> — det stillestående øyeblikket
+          og kroppen som forteller.
+        </p>
+        <blockquote>
+          Et bilde stopper tiden. En bevegelse gir den tilbake.
+          <cite>Mirada Nova</cite>
+        </blockquote>
+      </div>
+
+      <aside class="reveal">
+        <p class="eyebrow muted">Kort fortalt</p>
+        <ul class="facts">
+          <li><span class="k">Navn</span><span class="v">Mirada Nova Kunst- og kulturforening</span></li>
+          <li><span class="k">Form</span><span class="v">Frivillig, ideell forening</span></li>
+          <li><span class="k">Uttrykk</span><span class="v">Fotografi, bevegelse, performance, kulturarv</span></li>
+          <li><span class="k">Foto</span><span class="v">Shujah Malik</span></li>
+          <li><span class="k">Samarbeid</span><span class="v">St. Lazarus Corp</span></li>
+          <li><span class="k">Prosjekt 2026</span><span class="v">Usynlige rom</span></li>
+          <li><span class="k">Åpent for</span><span class="v">Alle — ingen erfaring nødvendig</span></li>
+        </ul>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PROSJEKTER ============ -->
+<section id="prosjekter">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <p class="eyebrow">Prosjekter</p>
+      <h2>Arbeidet vårt</h2>
+      <p>Hvert prosjekt starter med et spørsmål og ender i et rom der publikum møter det ferdige uttrykket.</p>
+    </div>
+
+    <div class="projects">
+      <article class="card featured reveal">
+        <span class="year">2026 — Hovedprosjekt</span>
+        <h3>Usynlige rom</h3>
+        <p>
+          En fotografisk og sceneisk undersøkelse av rommene vi passerer uten å se: venterom,
+          trappeoppganger, bakgårder — og menneskene i dem. Bilder av Shujah Malik møter
+          levende bevegelse. Vi søker statister i alle aldre.
+        </p>
+        <a class="tag" href="#usynlige-rom" style="text-decoration:none">Les mer &nbsp;→</a>
+      </article>
+
+      <article class="card reveal">
+        <span class="year">Løpende</span>
+        <h3>Bilde &amp; bevegelse</h3>
+        <p>
+          Åpne workshops der deltakere jobber med foto og kroppsspråk i samme rom.
+          Lav terskel, høyt ambisjonsnivå — mange av statistene våre begynner her.
+        </p>
+        <span class="tag">Workshop</span>
+      </article>
+
+      <article class="card reveal">
+        <span class="year">Løpende</span>
+        <h3>Kulturarv i fokus</h3>
+        <p>
+          Dokumentasjon av håndverk, ritualer og fortellinger som står i fare for å forsvinne,
+          i samarbeid med St. Lazarus Corp. Materialet blir til utstillinger og arkiv.
+        </p>
+        <span class="tag">Dokumentar</span>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============ USYNLIGE ROM ============ -->
+<section id="usynlige-rom">
+  <div class="wrap">
+    <div class="ur-hero reveal">
+      <div class="doors" aria-hidden="true"><span></span><span></span><span></span></div>
+      <p class="kicker">Prosjekt 2026</p>
+      <h2>Usynlige rom</h2>
+      <p>
+        Hver by har rom som ingen ser. Ikke fordi de er skjult, men fordi vi har sluttet å se dem.
+        <em>Usynlige rom</em> går inn i disse rommene med kamera og kropp, og gir dem tilbake til publikum.
+      </p>
+      <p>
+        Prosjektet kombinerer et fotografisk arbeid signert Shujah Malik med en sceneisk del der
+        statister og utøvere fyller rommet med bevegelse. Resultatet vises som en utstilling
+        med levende innslag — kunst og kulturarv i samme åndedrag, i samarbeid med St. Lazarus Corp.
+      </p>
+    </div>
+
+    <div class="steps">
+      <div class="step reveal">
+        <div class="n">01</div>
+        <h4>Kartlegging</h4>
+        <p>Vi finner rommene og menneskene, og samler fortellingene som ligger der.</p>
+      </div>
+      <div class="step reveal">
+        <div class="n">02</div>
+        <h4>Foto</h4>
+        <p>Shujah Malik fotograferer stedene og deltakerne — stillheten før bevegelsen.</p>
+      </div>
+      <div class="step reveal">
+        <div class="n">03</div>
+        <h4>Prøver</h4>
+        <p>Statister og utøvere øver inn enkle, koreograferte sekvenser. Ingen erfaring kreves.</p>
+      </div>
+      <div class="step reveal">
+        <div class="n">04</div>
+        <h4>Visning</h4>
+        <p>Utstilling og levende performance åpner rommet for publikum.</p>
+      </div>
+    </div>
+
+    <!-- ===== GALLERI =====
+         Legg bildene i mappen assets/ og bytt ut src-en under.
+         Kopier <figure>-blokken for hvert nytt bilde. -->
+    <div class="reveal" style="margin-top:80px">
+      <p class="eyebrow">Bildene</p>
+      <h3 style="font-size:clamp(1.8rem,4vw,2.8rem);margin-bottom:12px">Fotografi: Shujah Malik</h3>
+      <p class="muted" style="max-width:60ch;margin:0">
+        Alle fotografier i prosjektet er tatt av Shujah Malik og er beskyttet av opphavsrett.
+      </p>
+
+      <div class="gallery">
+        <figure class="photo empty">Bilde 1 — legg fil i assets/</figure>
+        <figure class="photo empty">Bilde 2 — legg fil i assets/</figure>
+        <figure class="photo empty">Bilde 3 — legg fil i assets/</figure>
+
+        <!-- Slik ser en ferdig bildeblokk ut – fjern kommentaren når du har bilder:
+        <figure class="photo">
+          <img src="assets/usynlige-rom-01.jpg" alt="Fra prosjektet Usynlige rom" loading="lazy">
+          <div class="shield"></div>
+          <figcaption class="credit">
+            <span>Usynlige rom</span>
+            <span>© <b><span class="js-year">2026</span> Shujah Malik</b></span>
+          </figcaption>
+        </figure>
+        -->
+      </div>
+
+      <p class="copyright-note">
+        <strong>Opphavsrett.</strong> Samtlige fotografier på denne siden © <span class="js-year">2026</span>
+        Shujah Malik. Alle rettigheter forbeholdt. Bildene kan ikke kopieres, lastes ned, endres,
+        publiseres på nytt eller brukes kommersielt uten skriftlig samtykke fra fotografen.
+        Henvendelser om bruk: <a href="mailto:post@mirada.no" style="color:var(--gold)">post@mirada.no</a>.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ STATIST ============ -->
+<section id="statist" class="alt">
+  <div class="wrap">
+    <div class="form-shell">
+      <div class="reveal">
+        <p class="eyebrow">Bli med</p>
+        <h2 style="font-size:clamp(2.2rem,5.2vw,3.4rem);margin-bottom:22px">Meld deg som statist</h2>
+        <p class="muted">
+          Vi søker mennesker i alle aldre, med alle bakgrunner og kroppsspråk til
+          <strong>Usynlige rom</strong>. Du trenger ingen erfaring — bare nysgjerrighet
+          og lyst til å være en del av noe større.
+        </p>
+
+        <div class="what-is">
+          <h4>Hva innebærer det?</h4>
+          <p>
+            Som statist er du en del av bildet og bevegelsen. Det kan bety å stå stille i et rom,
+            gå gjennom det, eller delta i en enkel koreografert sekvens. Vi setter opp
+            prøver i god tid før visning, og du får beskjed om tid og sted på forhånd.
+          </p>
+          <h4>Hva forventes av deg?</h4>
+          <p>
+            At du møter opp til avtalt prøve og visning, og at du er komfortabel med å bli
+            fotografert og filmet i prosjektets sammenheng. Deltakelse er frivillig og ulønnet,
+            men du får bilder fra prosjektet og en plass i produksjonen.
+          </p>
+          <h4>Personvern</h4>
+          <p>
+            Opplysningene du sender inn brukes kun til å kontakte deg om <em>Usynlige rom</em>,
+            og deles ikke med utenforstående. Du kan når som helst be om å bli slettet fra listen.
+          </p>
+        </div>
+      </div>
+
+      <div class="form-card reveal">
+        <form id="statist-form" action="https://formspree.io/f/DITT_FORM_ID" method="POST" novalidate>
+          <input type="hidden" name="_subject" value="Ny statistpåmelding — Usynlige rom">
+          <input type="text" name="_gotcha" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+
+          <div class="row">
+            <div class="field">
+              <label for="navn">Navn <span class="req">*</span></label>
+              <input id="navn" name="Navn" type="text" required autocomplete="name" placeholder="For- og etternavn">
+            </div>
+            <div class="field">
+              <label for="alder">Alder</label>
+              <input id="alder" name="Alder" type="number" min="1" max="120" inputmode="numeric" placeholder="F.eks. 34">
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="field">
+              <label for="epost">E-post <span class="req">*</span></label>
+              <input id="epost" name="E-post" type="email" required autocomplete="email" placeholder="deg@eksempel.no">
+            </div>
+            <div class="field">
+              <label for="telefon">Telefon</label>
+              <input id="telefon" name="Telefon" type="tel" autocomplete="tel" placeholder="+47 000 00 000">
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="field">
+              <label for="sted">Sted / bydel</label>
+              <input id="sted" name="Sted" type="text" placeholder="F.eks. Oslo">
+            </div>
+            <div class="field">
+              <label for="erfaring">Erfaring</label>
+              <select id="erfaring" name="Erfaring">
+                <option value="Ingen erfaring">Ingen erfaring — helt ny</option>
+                <option value="Litt erfaring">Litt erfaring (amatørteater, dans, foto)</option>
+                <option value="Erfaren">Erfaren utøver</option>
+              </select>
+            </div>
+          </div>
+
+          <fieldset>
+            <legend>Når kan du delta?</legend>
+            <label class="check"><input type="checkbox" name="Tilgjengelighet" value="Hverdager på dagtid"> Hverdager på dagtid</label>
+            <label class="check"><input type="checkbox" name="Tilgjengelighet" value="Hverdager på kveldstid"> Hverdager på kveldstid</label>
+            <label class="check"><input type="checkbox" name="Tilgjengelighet" value="Helger"> Helger</label>
+            <label class="check"><input type="checkbox" name="Tilgjengelighet" value="Fleksibel"> Fleksibel</label>
+          </fieldset>
+
+          <div class="field">
+            <label for="motivasjon">Hvorfor vil du være med?</label>
+            <textarea id="motivasjon" name="Motivasjon" placeholder="Skriv gjerne noen ord om deg selv og hva som gjør at dette frister."></textarea>
+            <p class="hint">Valgfritt, men det hjelper oss å sette sammen gruppen.</p>
+          </div>
+
+          <fieldset>
+            <legend>Samtykke</legend>
+            <label class="check">
+              <input type="checkbox" name="Samtykke_bilde" value="Ja" required>
+              <span>Jeg samtykker til at bilder og video av meg kan brukes i prosjektet <em>Usynlige rom</em> og i formidling av det. <span class="req">*</span></span>
+            </label>
+            <label class="check">
+              <input type="checkbox" name="Samtykke_kontakt" value="Ja" required>
+              <span>Jeg samtykker til at Mirada Nova lagrer kontaktopplysningene mine for å kontakte meg om prosjektet. <span class="req">*</span></span>
+            </label>
+            <label class="check">
+              <input type="checkbox" name="Nyhetsbrev" value="Ja">
+              <span>Jeg vil gjerne høre om framtidige prosjekter og workshops.</span>
+            </label>
+          </fieldset>
+
+          <button class="btn btn-primary" type="submit" id="submit-btn" style="width:100%;justify-content:center">Send påmelding</button>
+          <div class="form-status" id="form-status" role="status" aria-live="polite"></div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ============ FOOTER ============ -->
+<footer id="kontakt">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <a class="brand" href="#topp" style="margin-bottom:18px">
+          <svg viewBox="0 0 100 100" aria-hidden="true"><circle cx="50" cy="50" r="34" fill="none" stroke="#c9a227" stroke-width="3"/><circle cx="50" cy="50" r="12" fill="#c9a227"/></svg>
+          <span class="brand-name">Mirada Nova</span>
+        </a>
+        <p style="max-width:38ch">
+          Kunst- og kulturforening. Et nytt blikk på fotografi, bevegelse og kulturarv.
+          I samarbeid med St. Lazarus Corp.
+        </p>
+      </div>
+      <div>
+        <h4>Kontakt</h4>
+        <ul>
+          <li><a href="mailto:post@mirada.no">post@mirada.no</a></li>
+          <li><a href="#statist">Bli statist</a></li>
+          <li><a href="#prosjekter">Prosjekter</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Følg oss</h4>
+        <ul>
+          <li><a href="#" rel="noopener">Instagram</a></li>
+          <li><a href="#" rel="noopener">Facebook</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© <span class="js-year">2026</span> Mirada Nova Kunst- og kulturforening</span>
+      <span>Alle fotografier © <span class="js-year">2026</span> Shujah Malik — alle rettigheter forbeholdt</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  "use strict";
+
+  // Årstall oppdateres automatisk hvert år
+  var aar = new Date().getFullYear();
+  Array.prototype.forEach.call(document.querySelectorAll('.js-year'), function(el){
+    el.textContent = aar;
+  });
+
+  // ---- Bildebeskyttelse: hindrer enkel nedlasting/kopiering ----
+  // (Merk: ingen nettside kan gjøre bilder 100 % umulige å kopiere –
+  //  dette stopper tilfeldig kopiering, opphavsretten stopper resten.)
+  document.addEventListener('contextmenu', function(e){
+    if(e.target.closest && e.target.closest('.photo')){ e.preventDefault(); }
+  });
+  document.addEventListener('dragstart', function(e){
+    if(e.target.tagName === 'IMG'){ e.preventDefault(); }
+  });
+
+  // Header ved scroll
+  var header = document.getElementById('header');
+  function onScroll(){ header.classList.toggle('scrolled', window.scrollY > 40); }
+  onScroll();
+  window.addEventListener('scroll', onScroll, {passive:true});
+
+  // Mobilmeny
+  var burger = document.getElementById('burger');
+  var links  = document.getElementById('nav-links');
+  burger.addEventListener('click', function(){
+    var open = links.classList.toggle('open');
+    burger.classList.toggle('open', open);
+    burger.setAttribute('aria-expanded', open ? 'true' : 'false');
+    burger.setAttribute('aria-label', open ? 'Lukk meny' : 'Åpne meny');
+  });
+  links.addEventListener('click', function(e){
+    if(e.target.tagName === 'A'){
+      links.classList.remove('open');
+      burger.classList.remove('open');
+      burger.setAttribute('aria-expanded','false');
+    }
+  });
+
+  // Reveal ved scroll
+  var els = document.querySelectorAll('.reveal');
+  if('IntersectionObserver' in window){
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(en){
+        if(en.isIntersecting){ en.target.classList.add('in'); io.unobserve(en.target); }
+      });
+    }, {threshold:.12, rootMargin:'0px 0px -40px'});
+    els.forEach(function(el, i){ el.style.transitionDelay = (i % 4) * 70 + 'ms'; io.observe(el); });
+  } else {
+    els.forEach(function(el){ el.classList.add('in'); });
+  }
+
+  // Skjema
+  var form   = document.getElementById('statist-form');
+  var status = document.getElementById('form-status');
+  var btn    = document.getElementById('submit-btn');
+
+  function say(type, msg){ status.className = 'form-status ' + type; status.innerHTML = msg; }
+
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
+
+    if(!form.checkValidity()){
+      form.reportValidity();
+      say('err','Sjekk feltene som mangler — navn, e-post og samtykke er påkrevd.');
+      return;
+    }
+
+    // Skjemaet er ikke koblet til en tjeneste ennå
+    if(form.action.indexOf('DITT_FORM_ID') !== -1){
+      say('info','<strong>Skjemaet er ikke aktivert ennå.</strong><br>Bytt ut <code>DITT_FORM_ID</code> i index.html med ID-en fra Formspree, så sendes påmeldingene rett til e-posten deres. Se README.md, punkt 4.');
+      return;
+    }
+
+    btn.disabled = true;
+    var original = btn.textContent;
+    btn.textContent = 'Sender …';
+    say('info','Sender påmeldingen …');
+
+    fetch(form.action, {
+      method:'POST',
+      body:new FormData(form),
+      headers:{'Accept':'application/json'}
+    }).then(function(res){
+      if(res.ok){
+        form.reset();
+        say('ok','<strong>Takk for påmeldingen!</strong><br>Vi har mottatt den og tar kontakt på e-post når prøvene planlegges.');
+      } else {
+        return res.json().then(function(d){
+          throw new Error((d.errors && d.errors.map(function(x){return x.message}).join(', ')) || 'Ukjent feil');
+        });
+      }
+    }).catch(function(err){
+      say('err','Noe gikk galt: ' + err.message + '. Prøv igjen, eller send oss en e-post på <a href="mailto:post@mirada.no" style="color:inherit">post@mirada.no</a>.');
+    }).finally(function(){
+      btn.disabled = false;
+      btn.textContent = original;
+    });
+  });
+})();
+</script>
+</body>
+</html>
