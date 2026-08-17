@@ -14,12 +14,14 @@
 <meta property="og:title" content="Mirada Nova — Kunst- og kulturforening">
 <meta property="og:description" content="Der kunst møter uttrykk. Prosjekt 2026: Usynlige rom — vi søker statister.">
 <meta property="og:locale" content="nb_NO">
+<meta property="og:image" content="assets/icon-512.png">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 
-<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' fill='%230b0b0d'/><circle cx='50' cy='50' r='26' fill='none' stroke='%23c9a227' stroke-width='4'/><circle cx='50' cy='50' r='9' fill='%23c9a227'/></svg>">
+<link rel="icon" type="image/png" href="assets/apple-touch-icon.png">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
 
 <style>
 :root{
@@ -86,9 +88,11 @@ header.scrolled{
   border-bottom-color:var(--line);
 }
 .nav{display:flex;align-items:center;justify-content:space-between;height:76px}
-.brand{display:flex;align-items:center;gap:12px;text-decoration:none}
-.brand svg{width:26px;height:26px;flex:none}
-.brand-name{font-family:'Cormorant Garamond',serif;font-size:21px;letter-spacing:.18em;text-transform:uppercase}
+.brand{display:flex;align-items:center;gap:13px;text-decoration:none}
+.brand img{height:34px;width:auto;flex:none}
+.brand-name{font-family:'Cormorant Garamond',serif;font-size:21px;letter-spacing:.18em;text-transform:uppercase;white-space:nowrap}
+@media(max-width:420px){.brand-name{font-size:17px;letter-spacing:.14em}.brand img{height:28px}}
+.foot-logo{width:230px;max-width:70%;height:auto;margin-bottom:22px;opacity:.95}
 .nav-links{display:flex;gap:34px;align-items:center;list-style:none;margin:0;padding:0}
 .nav-links a{
   text-decoration:none;font-size:13px;letter-spacing:.13em;text-transform:uppercase;
@@ -386,7 +390,7 @@ footer li{margin-bottom:10px}
 <header id="header">
   <div class="wrap nav">
     <a class="brand" href="#">
-      <svg viewBox="0 0 100 100" aria-hidden="true"><circle cx="50" cy="50" r="34" fill="none" stroke="#c9a227" stroke-width="3"/><circle cx="50" cy="50" r="12" fill="#c9a227"/></svg>
+      <img src="assets/logo-mark.png" alt="" width="578" height="385">
       <span class="brand-name">Mirada Nova</span>
     </a>
     <button class="burger" id="burger" aria-label="Åpne meny" aria-expanded="false" aria-controls="nav-links">
@@ -715,9 +719,8 @@ footer li{margin-bottom:10px}
   <div class="wrap">
     <div class="foot-grid">
       <div>
-        <a class="brand" href="#topp" style="margin-bottom:18px">
-          <svg viewBox="0 0 100 100" aria-hidden="true"><circle cx="50" cy="50" r="34" fill="none" stroke="#c9a227" stroke-width="3"/><circle cx="50" cy="50" r="12" fill="#c9a227"/></svg>
-          <span class="brand-name">Mirada Nova</span>
+        <a href="#topp" aria-label="Mirada Nova — til toppen">
+          <img class="foot-logo" src="assets/logo.png" alt="Mirada Nova Kunst- og kulturforening" width="978" height="665">
         </a>
         <p style="max-width:38ch">
           Kunst- og kulturforening. Et nytt blikk på fotografi, bevegelse og kulturarv.
