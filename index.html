@@ -822,9 +822,30 @@ footer li{margin-bottom:10px}
       return;
     }
 
-    // Skjemaet er ikke koblet til en tjeneste ennå
+    // Midlertidig: ingen skjematjeneste koblet på ennå -> send som e-post.
+    // Når Formspree er satt opp, bytt DITT_FORM_ID i form-action over,
+    // så går denne grenen aldri, og påmeldingene kommer rett på e-post uten dette steget.
     if(form.action.indexOf('DITT_FORM_ID') !== -1){
-      say('info','<strong>Skjemaet er ikke aktivert ennå.</strong><br>Bytt ut <code>DITT_FORM_ID</code> i index.html med ID-en fra Formspree, så sendes påmeldingene rett til e-posten deres. Se README.md, punkt 4.');
+      var fd = new FormData(form);
+      var linjer = [];
+      var sett = {};
+      fd.forEach(function(v, k){
+        if(k.charAt(0) === '_' || !String(v).trim()) return;
+        if(sett[k]){ sett[k].push(v); } else { sett[k] = [v]; }
+      });
+      Object.keys(sett).forEach(function(k){
+        linjer.push(k.replace(/_/g,' ') + ': ' + sett[k].join(', '));
+      });
+      var mottaker = ['malikdilnawaz20','gmail.com'].join('@');   // enkel spam-skjerming
+      var url = 'mailto:' + mottaker
+              + '?subject=' + encodeURIComponent('Statistpåmelding — Usynlige rom')
+              + '&body='    + encodeURIComponent(
+                  'Påmelding som statist til Usynlige rom\n' +
+                  '----------------------------------------\n\n' +
+                  linjer.join('\n') +
+                  '\n\n(Sendt fra mirada.no)');
+      window.location.href = url;
+      say('ok','<strong>E-postprogrammet ditt åpnes nå</strong> med påmeldingen ferdig utfylt — trykk send, så er du påmeldt.<br>Skjer ingenting? Send opplysningene til <a href="mailto:' + mottaker + '" style="color:inherit">' + mottaker + '</a>.');
       return;
     }
 
