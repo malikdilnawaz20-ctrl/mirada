@@ -14,6 +14,8 @@
   --gull-lys:  #DFC28C;
   --linje:     rgba(255,255,255,.08);
   --linje-2:   rgba(255,255,255,.14);
+  --knapp-kant: rgba(244,241,235,.28);
+  --plassholder-tekst: rgba(180,177,170,.38);
 
   --serif: 'Cormorant Garamond', 'Canela', 'Editorial New', Georgia, serif;
   --sans:  'Inter', 'Suisse Int\'l', 'Neue Haas Grotesk', -apple-system, BlinkMacSystemFont, 'Helvetica Neue', sans-serif;
@@ -108,6 +110,36 @@ p:last-child{margin-bottom:0}
 em{font-style:italic}
 
 /* ============================================================
+   LYST ROM
+   Ett grep: klassen .lyst snur fargevariablene lokalt, så alle
+   eksisterende komponenter (lenker, knapper, skjema, hairlines)
+   følger med uten egne regler. Gir nettstedet rytme:
+   mørkt der fotografiet bærer, lyst der teksten leses.
+   ============================================================ */
+.lyst{
+  --bg:       #F6F3ED;
+  --bg-2:     #ECE8DF;
+  --tekst:    #15151A;
+  --tekst-2:  #585650;
+  --tekst-3:  rgba(88,86,80,.62);
+  --gull:     #7A5F2A;   /* mørkere gull — 5.3:1 mot lys bakgrunn */
+  --gull-lys: #5C4620;
+  --linje:    rgba(21,21,26,.13);
+  --linje-2:  rgba(21,21,26,.22);
+  --knapp-kant: rgba(21,21,26,.24);
+  --plassholder-tekst: rgba(88,86,80,.48);
+  position:relative;
+  background:var(--bg);
+  color:var(--tekst);
+}
+/* varm dybde, så flaten ikke blir flat hvit */
+.lyst::before{
+  content:'';position:absolute;inset:0;z-index:0;pointer-events:none;
+  background:radial-gradient(120% 90% at 15% 0%, rgba(199,168,109,.10), transparent 60%);
+}
+.lyst > *{position:relative;z-index:1}
+
+/* ============================================================
    LENKER OG KNAPPER
    ============================================================ */
 .lenke{
@@ -129,7 +161,7 @@ em{font-style:italic}
 .knapp{
   display:inline-flex;align-items:center;gap:14px;
   padding:17px 34px;
-  border:1px solid rgba(244,241,235,.28);
+  border:1px solid var(--knapp-kant);
   background:transparent;color:var(--tekst);
   font-family:var(--sans);font-size:11px;font-weight:400;
   letter-spacing:.22em;text-transform:uppercase;
@@ -206,6 +238,35 @@ em{font-style:italic}
 .mobilmeny{display:none}
 .meny-bunn{display:none}
 
+/* ---- navigasjonen snur seg over lyse rom ---- */
+.nav.pa-lyst .merke-navn,
+.nav.pa-lyst .meny a:hover,
+.nav.pa-lyst .meny a[aria-current="page"]{color:#15151A}
+.nav.pa-lyst .meny a{color:rgba(21,21,26,.60)}
+.nav.pa-lyst .meny a::after{background:#7A5F2A}
+.nav.pa-lyst .monogram path,.nav.pa-lyst .monogram line{stroke:#15151A}
+.nav.pa-lyst .merke:hover .monogram path,
+.nav.pa-lyst .merke:hover .monogram line{stroke:#7A5F2A}
+.nav.pa-lyst .meny-knapp{color:#15151A}
+.nav.pa-lyst.festet{
+  background:rgba(246,243,237,.86);
+  border-bottom-color:rgba(21,21,26,.10);
+}
+.nav.meny-apen.pa-lyst .merke-navn{color:var(--tekst)}
+.nav.meny-apen.pa-lyst .monogram path,
+.nav.meny-apen.pa-lyst .monogram line{stroke:var(--tekst)}
+.nav.meny-apen.pa-lyst .meny-knapp{color:var(--tekst)}
+
+/* ---- hårtynn lesestrek øverst ---- */
+.lesestrek{
+  position:fixed;left:0;top:0;height:1.5px;width:100%;z-index:130;
+  background:linear-gradient(90deg,var(--gull),#DFC28C);
+  transform:scaleX(0);transform-origin:left;
+  transition:transform .12s linear, opacity .5s var(--rolig);
+  opacity:0;pointer-events:none;
+}
+.lesestrek.pa{opacity:.85}
+
 /* ============================================================
    SEKSJONER OG RYTME
    ============================================================ */
@@ -274,6 +335,32 @@ figcaption .sted{font-size:10px;letter-spacing:.22em;text-transform:uppercase;co
 figcaption .kred{margin-left:auto;font-size:9px;letter-spacing:.2em;text-transform:uppercase;color:var(--tekst-3)}
 
 /* bildetekst midt i full bleed */
+.foto-full:has(.full-tekst)::before,
+.foto-full:has(.banner-innhold)::before{
+  content:'';position:absolute;inset:auto 0 0 0;height:42%;z-index:2;pointer-events:none;
+  background:linear-gradient(to top, rgba(11,11,13,.68), rgba(11,11,13,.28) 45%, transparent);
+}
+
+/* prosjektbanner — tittelen ligger på fotografiet i stedet for i egen blokk under */
+.banner{display:flex;align-items:flex-end;padding:0 var(--marg) clamp(44px,7vh,92px)}
+.foto-full.banner::before{height:88%;
+  background:
+    linear-gradient(to top, rgba(11,11,13,.92) 0%, rgba(11,11,13,.80) 18%, rgba(11,11,13,.50) 42%, rgba(11,11,13,.12) 72%, transparent),
+    linear-gradient(to right, rgba(11,11,13,.34), transparent 80%)}
+.banner-innhold{
+  position:relative;z-index:4;width:100%;max-width:1500px;margin-inline:auto;
+  text-shadow:0 1px 30px rgba(0,0,0,.7);
+  -webkit-user-select:text;user-select:text;
+}
+.banner-innhold .seksjonsnr{margin-bottom:clamp(16px,2.4vh,26px)}
+.banner-innhold .tittel-xl{margin-bottom:clamp(18px,2.6vh,30px);text-shadow:0 2px 40px rgba(0,0,0,.5)}
+.banner-innhold .ingress{max-width:36ch;margin-bottom:clamp(26px,4vh,40px)}
+@media(min-width:1100px){
+  .banner-innhold .oppslag-banner{display:grid;grid-template-columns:repeat(12,1fr);align-items:end;gap:40px}
+  .banner-innhold .oppslag-banner > :first-child{grid-column:1 / span 7}
+  .banner-innhold .oppslag-banner > :last-child{grid-column:9 / span 4;padding-bottom:14px}
+  .banner-innhold .tittel-xl{margin-bottom:0}
+}
 .full-tekst{
   position:absolute;left:var(--marg);bottom:clamp(26px,5vh,58px);z-index:4;
   display:flex;align-items:baseline;gap:18px;flex-wrap:wrap;
@@ -471,7 +558,7 @@ input[type=text],input[type=email],input[type=tel],select,textarea{
   padding:10px 0 14px;border-radius:0;transition:border-color .5s var(--rolig);
 }
 input:focus,select:focus,textarea:focus{outline:none;border-bottom-color:var(--gull)}
-input::placeholder,textarea::placeholder{color:rgba(180,177,170,.38)}
+input::placeholder,textarea::placeholder{color:var(--plassholder-tekst)}
 textarea{resize:vertical;min-height:96px;line-height:1.7}
 select{appearance:none;-webkit-appearance:none;cursor:pointer;
   background-image:linear-gradient(45deg,transparent 50%,var(--tekst-2) 50%),linear-gradient(135deg,var(--tekst-2) 50%,transparent 50%);
@@ -586,17 +673,81 @@ footer{border-top:1px solid var(--linje);padding:clamp(70px,10vh,120px) var(--ma
   .mobilmeny.apen nav a:nth-child(2){transition-delay:.16s}
   .mobilmeny.apen nav a:nth-child(3){transition-delay:.22s}
   .mobilmeny.apen nav a:nth-child(4){transition-delay:.28s}
+  .mobilmeny.apen nav a:nth-child(5){transition-delay:.34s}
   .mobilmeny a[aria-current="page"]{color:var(--gull)}
   .mobilmeny .meny-bunn{
     display:block;position:absolute;left:var(--marg);bottom:clamp(34px,7vh,70px);
   }
   .mobilmeny .meny-bunn a{
     font-family:var(--sans);font-size:11px;letter-spacing:.24em;text-transform:uppercase;
-    color:var(--tekst-2);display:block;margin-bottom:12px;transition-delay:.34s;
+    color:var(--tekst-2);display:block;margin-bottom:12px;transition-delay:.40s;
   }
 
   .merke-navn{font-size:1rem;letter-spacing:.2em}
   figcaption .kred{margin-left:0;width:100%}
-  .full-tekst{position:static;margin-top:16px;text-shadow:none}
   .foto-full{height:clamp(340px,68svh,700px)}
 }
+
+
+/* ============================================================
+   FORSIDE — utforsk (erstatter «utvalgte arbeider»)
+   Tre inngangsporter i stedet for en lang bildeseksjon.
+   ============================================================ */
+.utforsk{display:grid;gap:clamp(50px,6vw,58px)}
+@media(min-width:820px){.utforsk{grid-template-columns:repeat(3,1fr);gap:clamp(28px,3.4vw,52px)}}
+
+.port{display:block;position:relative}
+.port .port-bilde{aspect-ratio:4/5;margin-bottom:24px}
+.port-topp{
+  display:flex;align-items:center;gap:14px;
+  padding-top:20px;margin-bottom:16px;
+  border-top:1px solid var(--linje-2);
+  transition:border-color .6s var(--rolig);
+}
+.port .nr{font-family:var(--serif);font-size:1rem;color:var(--gull);line-height:1}
+.port h3{font-size:clamp(1.55rem,2.4vw,2.05rem);margin-bottom:14px;transition:color .55s var(--rolig)}
+.port p{font-size:14.5px;max-width:34ch;margin-bottom:22px}
+.port .port-mer{
+  display:inline-flex;align-items:baseline;gap:11px;
+  font-size:10px;letter-spacing:.24em;text-transform:uppercase;color:var(--gull);
+}
+.port .port-mer .pil{transition:transform .55s var(--rolig)}
+.port:hover .port-topp{border-color:var(--gull)}
+.port:hover h3{color:var(--gull)}
+.port:hover .port-mer .pil{transform:translateX(6px)}
+
+/* ============================================================
+   FOTOGRAF
+   ============================================================ */
+.fotograf-topp{display:grid;gap:clamp(34px,5vw,70px);align-items:start}
+@media(min-width:900px){.fotograf-topp{grid-template-columns:minmax(0,4fr) minmax(0,7fr)}}
+
+.portrett{aspect-ratio:4/5;width:100%}
+@media(max-width:899px){.portrett{max-width:340px}}
+
+/* pen ramme der bildet ennå ikke finnes */
+.plassholder{
+  position:relative;border:1px solid var(--linje-2);background:var(--bg-2);
+  display:flex;align-items:center;justify-content:center;text-align:center;padding:30px;
+}
+.plassholder::after{
+  content:'';position:absolute;inset:9px;border:1px solid var(--linje);pointer-events:none;
+}
+.plassholder span{font-size:10px;letter-spacing:.24em;text-transform:uppercase;color:var(--tekst-3);
+  max-width:24ch;line-height:2}
+
+.pris{font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:var(--gull);
+  display:block;margin-top:14px}
+
+.stripe{display:grid;gap:clamp(14px,1.8vw,26px);grid-template-columns:repeat(2,1fr)}
+@media(min-width:760px){.stripe{grid-template-columns:repeat(4,1fr)}}
+.stripe .foto{aspect-ratio:4/5}
+
+.fakta{border-top:1px solid var(--linje);display:grid;gap:0}
+@media(min-width:700px){.fakta{grid-template-columns:repeat(3,1fr)}}
+.fakta div{border-bottom:1px solid var(--linje);padding:26px 0}
+@media(min-width:700px){.fakta div{border-right:1px solid var(--linje);padding:26px 30px 26px 0}
+  .fakta div:last-child{border-right:0}}
+.fakta dt,.fakta .n{font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:var(--tekst-3);
+  display:block;margin-bottom:10px}
+.fakta .v{display:block;font-family:var(--serif);font-size:clamp(1.2rem,2vw,1.6rem);line-height:1.3}

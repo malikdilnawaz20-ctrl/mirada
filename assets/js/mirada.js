@@ -76,14 +76,43 @@
   var knapp = document.getElementById('meny-knapp');
   var meny = document.getElementById('mobilmeny');
 
+  /* hårtynn lesestrek øverst */
+  var strek = document.createElement('div');
+  strek.className = 'lesestrek';
+  document.body.appendChild(strek);
+
+  /* navigasjonen snur farge når den står over et lyst rom */
+  var lyseRom = [].slice.call(document.querySelectorAll('.lyst'));
+  function navFarge(){
+    if(!nav || !lyseRom.length) return;
+    var y = (nav.offsetHeight || 82) * 0.55;
+    var over = lyseRom.some(function(s){
+      var r = s.getBoundingClientRect();
+      return r.top <= y && r.bottom >= y;
+    });
+    nav.classList.toggle('pa-lyst', over);
+  }
+
   if(nav){
     var sist = 0;
-    addEventListener('scroll', function(){
+    var venterNav = false;
+    var oppdater = function(){
       var y = pageYOffset;
       nav.classList.toggle('festet', y > 60);
       nav.classList.toggle('skjult', y > 560 && y > sist && !(meny && meny.classList.contains('apen')));
       sist = y;
+      navFarge();
+      var h = document.documentElement.scrollHeight - innerHeight;
+      strek.style.transform = 'scaleX(' + (h > 0 ? Math.min(y / h, 1) : 0) + ')';
+      strek.classList.toggle('pa', y > 60);
+    };
+    addEventListener('scroll', function(){
+      if(venterNav) return;
+      venterNav = true;
+      requestAnimationFrame(function(){ oppdater(); venterNav = false; });
     }, {passive:true});
+    addEventListener('resize', navFarge, {passive:true});
+    oppdater();
   }
 
   if(knapp && meny){
@@ -259,56 +288,78 @@
     i.addEventListener('change', function(){ l.classList.toggle('valgt', i.checked); });
   });
 
-  var form = document.getElementById('statist-form');
-  if(form){
-    var send = document.getElementById('send'),
-        ut   = document.getElementById('form-status');
+  /* Generisk skjemamotor. Alle skjema med data-skjema håndteres likt:
+     validering ut fra required-attributtene, mailto-reserve så lenge
+     Formspree ikke er koblet på, og rolige statusmeldinger. */
+  [].forEach.call(document.querySelectorAll('form[data-skjema]'), function(form){
+    var send = form.querySelector('[type=submit]');
+    var ut   = form.querySelector('.melding');
+    var opprinneligTekst = send && send.querySelector('span') ? send.querySelector('span').textContent : 'Send';
 
     function si(type, html){
-      ut.className = 'melding vis' + (type==='feil' ? ' feil' : '');
+      if(!ut) return;
+      ut.className = 'melding vis' + (type === 'feil' ? ' feil' : '');
       ut.innerHTML = html;
       ut.scrollIntoView({block:'nearest', behavior: rolig ? 'auto' : 'smooth'});
+    }
+
+    function finnFeil(){
+      var felt = [].slice.call(form.querySelectorAll('[required]'));
+      for(var i = 0; i < felt.length; i++){
+        var f = felt[i];
+        var melding = f.getAttribute('data-feil') || 'Dette feltet må fylles ut.';
+        if(f.type === 'checkbox' || f.type === 'radio'){
+          var gruppe = form.querySelectorAll('[name="' + f.name + '"]');
+          var kryss = [].some.call(gruppe, function(g){ return g.checked; });
+          if(!kryss) return {felt:f, melding:melding};
+        } else if(f.type === 'email'){
+          if(!/^[^@\s]+@[^@\s]+\.[^@\s]{2,}$/.test(f.value)) return {felt:f, melding:melding};
+        } else if(!String(f.value).trim()){
+          return {felt:f, melding:melding};
+        }
+      }
+      return null;
     }
 
     form.addEventListener('submit', function(e){
       e.preventDefault();
 
-      if(!form.navn.value.trim())  return si('feil','Vi trenger navnet ditt.');
-      if(!/^[^@\s]+@[^@\s]+\.[^@\s]{2,}$/.test(form.epost.value)) return si('feil','Sjekk e-postadressen.');
-      if(!form.alder.value)        return si('feil','Velg aldersgruppe.');
-      if(!form['Samtykke bilde'].checked) return si('feil','Du må samtykke til bruk av bilde for å kunne delta.');
+      var feil = finnFeil();
+      if(feil){
+        try{ feil.felt.focus({preventScroll:true}); }catch(err){}
+        return si('feil', feil.melding);
+      }
 
       /* Midlertidig: ingen skjematjeneste koblet på ennå — sendes som e-post.
          Når Formspree er satt opp, byttes DITT_FORM_ID i form-action, og denne grenen kjører aldri. */
       if(form.action.indexOf('DITT_FORM_ID') !== -1){
         var d = new FormData(form), samlet = {};
         d.forEach(function(v,k){
-          if(k.charAt(0)==='_' || !String(v).trim()) return;
+          if(k.charAt(0) === '_' || !String(v).trim()) return;
           (samlet[k] = samlet[k] || []).push(v);
         });
         var linjer = Object.keys(samlet).map(function(k){ return k + ': ' + samlet[k].join(', '); });
         var mottaker = ['malikdilnawaz20','gmail.com'].join('@');
+        var emne = form.dataset.skjema || 'Melding fra mirada.no';
         location.href = 'mailto:' + mottaker
-          + '?subject=' + encodeURIComponent('Påmelding — Mirada Nova')
-          + '&body='    + encodeURIComponent('Påmelding fra mirada.no\n\n' + linjer.join('\n'));
-        return si('ok','<strong>E-postprogrammet ditt åpnes nå</strong> med påmeldingen ferdig utfylt — trykk send, så er du påmeldt.<br>Skjer ingenting? Send opplysningene til <a href="mailto:'+mottaker+'">'+mottaker+'</a>.');
+          + '?subject=' + encodeURIComponent(emne)
+          + '&body='    + encodeURIComponent(emne + '\n(sendt fra mirada.no)\n\n' + linjer.join('\n'));
+        return si('ok','<strong>E-postprogrammet ditt åpnes nå</strong> med opplysningene ferdig utfylt — trykk send, så er den levert.<br>Skjer ingenting? Send opplysningene til <a href="mailto:'+mottaker+'">'+mottaker+'</a>.');
       }
 
-      send.disabled = true;
-      send.querySelector('span').textContent = 'Sender';
+      if(send){ send.disabled = true; if(send.querySelector('span')) send.querySelector('span').textContent = 'Sender'; }
 
       fetch(form.action, {method:'POST', body:new FormData(form), headers:{Accept:'application/json'}})
         .then(function(r){
           if(!r.ok) throw 0;
           form.style.display = 'none';
-          si('ok','<strong>Takk — påmeldingen er registrert.</strong><br>Vi tar kontakt i god tid før opptak.');
+          si('ok', form.dataset.takk || '<strong>Takk — meldingen er sendt.</strong>');
         })
         .catch(function(){
-          send.disabled = false;
-          send.querySelector('span').textContent = 'Send påmelding';
+          if(send){ send.disabled = false; if(send.querySelector('span')) send.querySelector('span').textContent = opprinneligTekst; }
           si('feil','Noe gikk galt. Send gjerne en e-post til <a href="mailto:post@mirada.no">post@mirada.no</a> i stedet.');
         });
     });
-  }
+  });
 
 })();
