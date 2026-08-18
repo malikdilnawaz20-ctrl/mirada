@@ -96,13 +96,9 @@
   <div class="rom-smal">
     <div class="fotograf-topp">
 
-      <!-- TODO: bytt ut plassholderen når portrettet er klart.
-           Legg fila som assets/foto/shujah-{1000,1600,2400}.webp + shujah-1600.jpg,
-           og erstatt hele div.plassholder med:
-           <figure class="foto zoom portrett opp" data-bilde="shujah"><div class="flate"></div></figure> -->
-      <div class="plassholder portrett opp">
-        <span>Portrett av fotografen<br>kommer</span>
-      </div>
+      <figure class="foto zoom portrett opp" data-bilde="shujah">
+        <div class="flate"></div>
+      </figure>
 
       <div>
         <h2 class="mellomtittel opp t1">Han fotograferer stedet folk går forbi</h2>
@@ -126,6 +122,30 @@
     <span class="merkelapp">Elvebredden</span>
   </div>
 </figure>
+
+<!-- ══════════════ ANERKJENNELSE (mørkt) ══════════════ -->
+<section class="rom rom-tett">
+  <div class="rom-smal">
+    <div class="seksjonsnr opp">
+      <span class="merkelapp gull">Anerkjennelse</span><span class="strek"></span>
+      <span class="merkelapp">Møter</span>
+    </div>
+
+    <p class="opp t1" style="margin-top:34px;max-width:62ch">Fotografiene har funnet veien lenger enn Drammen. Tidligere statsminister Erna Solberg har fått overrakt et av Shujahs bilder, og arbeidene hans er delt videre i byen han fotograferer.</p>
+
+    <!-- TODO: bekreft med Dilnawaz/Shujah hvem som er avbildet i det andre bildet og anledningen, så kan bildeteksten presiseres. -->
+    <div class="opp t2" style="margin-top:clamp(38px,6vh,64px);display:grid;gap:clamp(20px,3vw,40px);grid-template-columns:repeat(auto-fit,minmax(280px,1fr));align-items:start">
+      <figure>
+        <div class="foto zoom" data-bilde="erna" style="aspect-ratio:3/2"><div class="flate"></div></div>
+        <figcaption><span class="navn">Med Erna Solberg</span><span class="sted">Tidligere statsminister</span></figcaption>
+      </figure>
+      <figure>
+        <div class="foto zoom" data-bilde="tore" style="aspect-ratio:6/5"><div class="flate"></div></div>
+        <figcaption><span class="navn">Fra overrekkelsen</span><span class="sted">Drammen i Shujahs bilder</span></figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
 
 <!-- ══════════════ TJENESTER (lyst rom) ══════════════ -->
 <section class="rom lyst" id="tjenester">
