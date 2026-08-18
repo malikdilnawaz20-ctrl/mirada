@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url><loc>https://mirada.no/</loc><changefreq>monthly</changefreq><priority>1.0</priority></url>
+  <url><loc>https://mirada.no/prosjekter/</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://mirada.no/prosjekter/usynlige-rom/</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://mirada.no/verk/</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://mirada.no/om/</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://mirada.no/delta/</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://mirada.no/kontakt/</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+</urlset>

@@ -1,17 +1,42 @@
 # Mirada Nova — nettside
 
-Nettsiden til Mirada Nova Kunst- og kulturforening. Én enkelt HTML-fil, ingen database,
-ingen månedlige kostnader. Kan ligge gratis på GitHub Pages.
+Nettsiden til Mirada Nova Kunst- og kulturforening. Rene HTML-filer, ingen database,
+ingen byggesteg, ingen månedlige kostnader. Ligger gratis på GitHub Pages.
 
-## Filer
+## Struktur
+
+Nettstedet er delt i sju sider. Hver side er sin egen `index.html` i sin egen mappe —
+det er slik GitHub Pages lager pene adresser uten `.html` i URL-en.
+
+| Adresse | Fil | Innhold |
+|---|---|---|
+| `/` | `index.html` | Forside: hero, aktuelt prosjekt, tre utvalgte verk, kort intro |
+| `/prosjekter` | `prosjekter/index.html` | Oversikt over prosjektene |
+| `/prosjekter/usynlige-rom` | `prosjekter/usynlige-rom/index.html` | Egen prosjektside |
+| `/verk` | `verk/index.html` | Fotogalleri med lightbox |
+| `/om` | `om/index.html` | Manifest, arbeidsfelt, foreningen |
+| `/delta` | `delta/index.html` | Deltakelsesformer og påmeldingsskjema |
+| `/kontakt` | `kontakt/index.html` | Kontaktside |
+| — | `404.html` | Vises når en adresse ikke finnes |
 
 | Fil | Hva det er |
 |---|---|
-| `index.html` | Hele nettsiden — tekst, design og skjema i én fil |
-| `assets/` | Her legger du bildene (foto: Shujah Malik) |
-| `CNAME` | Ditt eget domene (rediger denne når du har kjøpt domenet) |
+| `assets/css/mirada.css` | All design. Endrer du noe her, endres det på alle sider. |
+| `assets/js/mirada.js` | All funksjonalitet: meny, bildelasting, lightbox, skjema. |
+| `assets/foto/` | Fotografiene (foto: Shujah Malik) |
+| `assets/foto/bilder.json` | Titler, steder og bildestørrelser |
+| `CNAME` | Domenet (`mirada.no`) |
 | `.nojekyll` | Teknisk fil GitHub trenger. Ikke rør. |
+| `sitemap.xml` | Liste over sidene, for søkemotorer |
 | `README.md` | Denne veiledningen |
+
+**Vil du endre menyen eller bunnteksten?** Den ligger i hver enkelt HTML-fil.
+Endrer du meny eller bunntekst, må du gjøre den samme endringen i alle sju filene
+pluss `404.html`.
+
+**Vil du legge til et nytt bilde i galleriet?** Legg de nedskalerte filene i
+`assets/foto/`, legg til en oppføring i `bilder.json`, og kopier en av
+`<button class="galleri-post">`-blokkene i `verk/index.html`.
 
 ---
 

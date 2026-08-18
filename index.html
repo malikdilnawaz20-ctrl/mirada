@@ -3,9 +3,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Mirada Nova — Kunst- og kulturforening</title>
+<title>Mirada Nova — Et nytt blikk</title>
 
-<meta name="description" content="Mirada Nova er en kunst- og kulturforening som arbeider i møtet mellom fotografi, film, bevegelse og levende kulturarv.">
+<meta name="description" content="Kunst- og kulturforening i Drammen. Fotografi, film, bevegelse og levende kulturarv.">
 <meta name="author" content="Mirada Nova Kunst- og kulturforening">
 <meta name="copyright" content="© 2026 Mirada Nova. Alle fotografier © Shujah Malik.">
 <meta name="theme-color" content="#0B0B0D">
@@ -14,20 +14,21 @@
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Mirada Nova">
 <meta property="og:title" content="Mirada Nova — Et nytt blikk">
-<meta property="og:description" content="Fotografi. Film. Bevegelse. Levende kulturarv.">
+<meta property="og:description" content="Kunst- og kulturforening i Drammen. Fotografi, film, bevegelse og levende kulturarv.">
 <meta property="og:locale" content="nb_NO">
 <meta property="og:url" content="https://mirada.no/">
 <meta property="og:image" content="https://mirada.no/assets/foto/takehavet-1600.jpg">
 <meta name="twitter:card" content="summary_large_image">
 
-<link rel="icon" type="image/png" href="assets/apple-touch-icon.png">
-<link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+<link rel="icon" type="image/png" href="/assets/apple-touch-icon.png">
+<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
 <link rel="canonical" href="https://mirada.no/">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300&family=Inter:wght@200;300;400;500&display=swap" rel="stylesheet">
-<link rel="preload" as="image" href="assets/foto/takehavet-2400.webp" fetchpriority="high">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Inter:wght@200;300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/css/mirada.css">
+<link rel="preload" as="image" href="/assets/foto/takehavet-2400.webp" fetchpriority="high">
 
 <script type="application/ld+json">
 {
@@ -40,632 +41,130 @@
   "areaServed":"Drammen, Norge"
 }
 </script>
-
-<style>
-/* ============================================================
-   MIRADA NOVA
-   Kullsort · champagne · off-white
-   ============================================================ */
-
-:root{
-  --bg:        #0B0B0D;
-  --bg-2:      #141416;
-  --tekst:     #F4F1EB;
-  --tekst-2:   #B4B1AA;
-  --gull:      #C7A86D;
-  --gull-lys:  #DFC28C;
-  --linje:     rgba(255,255,255,.08);
-
-  --serif: 'Cormorant Garamond', 'Canela', 'Editorial New', Georgia, serif;
-  --sans:  'Inter', 'Suisse Int\'l', 'Neue Haas Grotesk', -apple-system, BlinkMacSystemFont, 'Helvetica Neue', sans-serif;
-
-  --marg: clamp(22px, 6vw, 110px);
-  --rolig: cubic-bezier(.22,.61,.36,1);
-}
-
-*,*::before,*::after{box-sizing:border-box}
-html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
-
-body{
-  margin:0;
-  background:var(--bg);
-  color:var(--tekst);
-  font-family:var(--sans);
-  font-weight:300;
-  font-size:16px;
-  line-height:1.75;
-  letter-spacing:.005em;
-  -webkit-font-smoothing:antialiased;
-  -moz-osx-font-smoothing:grayscale;
-  overflow-x:hidden;
-}
-
-img{max-width:100%;height:auto;display:block}
-a{color:inherit;text-decoration:none}
-
-::selection{background:var(--gull);color:var(--bg)}
-
-/* ---------- typografi ---------- */
-h1,h2,h3{font-family:var(--serif);font-weight:300;margin:0;line-height:1.04;letter-spacing:-.012em}
-
-.display{
-  font-family:var(--serif);
-  font-weight:300;
-  font-size:clamp(3.4rem, 12vw, 11.5rem);
-  line-height:.92;
-  letter-spacing:-.02em;
-}
-.display em{font-style:italic;color:var(--gull)}
-
-.tittel{font-size:clamp(2rem, 5.2vw, 4.4rem);line-height:1.06}
-.mellomtittel{font-size:clamp(1.5rem, 2.8vw, 2.3rem);line-height:1.15}
-
-.merkelapp{
-  font-family:var(--sans);
-  font-size:10px;
-  font-weight:400;
-  letter-spacing:.30em;
-  text-transform:uppercase;
-  color:var(--tekst-2);
-}
-.merkelapp.gull{color:var(--gull)}
-
-.ingress{
-  font-family:var(--serif);
-  font-size:clamp(1.35rem, 2.4vw, 2rem);
-  line-height:1.42;
-  color:var(--tekst);
-  font-weight:300;
-}
-
-p{margin:0 0 1.3em;color:var(--tekst-2);max-width:52ch}
-p.lys{color:var(--tekst)}
-p:last-child{margin-bottom:0}
-
-/* ---------- navigasjon ---------- */
-.nav{
-  position:fixed; inset:0 0 auto 0; z-index:100;
-  display:flex; align-items:center; justify-content:space-between;
-  gap:24px;
-  padding:26px var(--marg);
-  transition:background .7s var(--rolig), padding .7s var(--rolig), border-color .7s var(--rolig), backdrop-filter .7s var(--rolig);
-  border-bottom:1px solid transparent;
-}
-.nav.festet{
-  padding:16px var(--marg);
-  background:rgba(11,11,13,.82);
-  backdrop-filter:blur(18px) saturate(140%);
-  -webkit-backdrop-filter:blur(18px) saturate(140%);
-  border-bottom-color:var(--linje);
-}
-.nav.skjult{transform:translateY(-102%);transition:transform .55s var(--rolig), background .7s var(--rolig)}
-.nav{transform:translateY(0);transition:transform .55s var(--rolig), background .7s var(--rolig), padding .7s var(--rolig), border-color .7s var(--rolig)}
-
-.merke{display:flex;align-items:center;gap:14px}
-.monogram{width:30px;height:30px;flex:none;overflow:visible}
-.monogram path,.monogram line{stroke:var(--tekst);stroke-width:1.15;fill:none;vector-effect:non-scaling-stroke;
-  transition:stroke .6s var(--rolig)}
-.merke:hover .monogram path,.merke:hover .monogram line{stroke:var(--gull)}
-.merke-navn{
-  font-family:var(--serif);font-size:1.18rem;letter-spacing:.26em;text-transform:uppercase;
-  white-space:nowrap;line-height:1;padding-top:2px;
-}
-
-.meny{display:flex;align-items:center;gap:clamp(18px,2.6vw,44px)}
-.meny a{
-  font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--tekst-2);
-  position:relative;padding:6px 0;transition:color .5s var(--rolig);
-}
-.meny a::after{
-  content:'';position:absolute;left:0;bottom:0;height:1px;width:0;background:var(--gull);
-  transition:width .55s var(--rolig);
-}
-.meny a:hover{color:var(--tekst)}
-.meny a:hover::after{width:100%}
-
-.meny-knapp{display:none;background:none;border:0;color:var(--tekst);padding:8px;cursor:pointer}
-.meny-knapp span{display:block;width:22px;height:1px;background:currentColor;margin:5px 0;transition:transform .5s var(--rolig),opacity .4s}
-.meny-knapp[aria-expanded="true"] span:nth-child(1){transform:translateY(6px) rotate(45deg)}
-.meny-knapp[aria-expanded="true"] span:nth-child(2){opacity:0}
-.meny-knapp[aria-expanded="true"] span:nth-child(3){transform:translateY(-6px) rotate(-45deg)}
-
-/* ---------- knapper ---------- */
-.knapp{
-  display:inline-flex;align-items:center;gap:14px;
-  padding:17px 34px;
-  border:1px solid rgba(244,241,235,.28);
-  background:transparent;color:var(--tekst);
-  font-family:var(--sans);font-size:11px;font-weight:400;
-  letter-spacing:.22em;text-transform:uppercase;
-  cursor:pointer;position:relative;overflow:hidden;isolation:isolate;
-  transition:color .55s var(--rolig), border-color .55s var(--rolig);
-}
-.knapp::before{
-  content:'';position:absolute;inset:0;background:var(--gull);
-  transform:scaleX(0);transform-origin:left;
-  transition:transform .6s var(--rolig);z-index:-1;
-}
-.knapp>*{position:relative;z-index:1}
-.knapp:hover{color:var(--bg);border-color:var(--gull)}
-.knapp:hover::before{transform:scaleX(1)}
-.knapp .pil{transition:transform .6s var(--rolig)}
-.knapp:hover .pil{transform:translateX(5px)}
-.knapp.gull{border-color:var(--gull);color:var(--gull)}
-.knapp.gull:hover{color:var(--bg)}
-
-/* ---------- seksjoner ---------- */
-section{position:relative}
-.rom{padding:clamp(110px,17vh,220px) var(--marg)}
-.rom-smal{max-width:1500px;margin-inline:auto}
-
-.seksjonsnr{
-  display:flex;align-items:center;gap:18px;margin-bottom:clamp(38px,6vh,70px);
-}
-.seksjonsnr .strek{height:1px;flex:1;max-width:110px;background:var(--linje)}
-
-/* ---------- hero ---------- */
-.hero{
-  position:relative;min-height:100svh;display:flex;align-items:flex-end;
-  padding:0 var(--marg) clamp(56px,9vh,100px);
-  overflow:hidden;
-}
-.hero-media{position:absolute;inset:0;z-index:0;overflow:hidden;background:#000}
-.hero-media .flate{
-  position:absolute;inset:0;
-  background-image:url('assets/foto/takehavet-2400.webp');
-  background-size:cover;background-position:center 42%;
-  transform:scale(1.045);
-  animation:rolig-inn 2600ms var(--rolig) both;
-}
-.hero-media video{
-  position:absolute;inset:0;width:100%;height:100%;object-fit:cover;
-  opacity:0;transition:opacity 1.6s var(--rolig);
-}
-.hero-media video.klar{opacity:1}
-@keyframes rolig-inn{from{opacity:0;transform:scale(1.09)}to{opacity:1;transform:scale(1.045)}}
-
-.hero-slor{
-  position:absolute;inset:0;z-index:1;
-  background:
-    linear-gradient(to top, rgba(11,11,13,.94) 0%, rgba(11,11,13,.55) 34%, rgba(11,11,13,.12) 62%, rgba(11,11,13,.5) 100%),
-    radial-gradient(120% 80% at 20% 90%, rgba(11,11,13,.7), transparent 62%);
-}
-.hero-innhold{position:relative;z-index:2;width:100%}
-.hero .display{margin-bottom:clamp(26px,4vh,48px)}
-.hero-linjer{
-  display:flex;flex-wrap:wrap;align-items:baseline;gap:8px 30px;
-  margin-bottom:clamp(34px,5vh,58px);
-}
-.hero-linjer span{
-  font-size:11px;letter-spacing:.26em;text-transform:uppercase;color:var(--tekst-2);
-}
-.hero-linjer span+span::before{content:'';display:inline-block;width:16px;height:1px;background:var(--linje);
-  vertical-align:middle;margin-right:30px}
-
-.bla-ned{
-  position:absolute;left:var(--marg);bottom:clamp(20px,3vh,34px);z-index:2;
-  display:flex;align-items:center;gap:12px;
-}
-.bla-ned .merkelapp{font-size:9px}
-.bla-ned i{display:block;width:1px;height:34px;background:linear-gradient(var(--gull),transparent);
-  animation:puls 2800ms ease-in-out infinite}
-@keyframes puls{0%,100%{opacity:.25;transform:scaleY(.55)}50%{opacity:1;transform:scaleY(1)}}
-
-/* ---------- manifest ---------- */
-.manifest{display:grid;grid-template-columns:1fr;gap:clamp(40px,6vw,90px)}
-@media(min-width:900px){
-  .manifest{grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr);align-items:start}
-  .manifest .hoyre{padding-top:clamp(40px,9vh,130px)}
-}
-.stor-sitat{
-  font-family:var(--serif);font-weight:300;
-  font-size:clamp(2.1rem,4.6vw,4rem);line-height:1.14;letter-spacing:-.015em;
-  max-width:20ch;
-}
-.stor-sitat em{font-style:italic;color:var(--gull)}
-
-/* ---------- foto ---------- */
-.foto{
-  position:relative;overflow:hidden;background:var(--bg-2);
-  -webkit-user-select:none;user-select:none;-webkit-touch-callout:none;
-}
-.foto .flate{
-  position:absolute;inset:0;
-  background-size:cover;background-position:center;
-  opacity:0;transform:scale(1.03);
-  transition:opacity 1.5s var(--rolig), transform 2.4s var(--rolig);
-}
-.foto.lastet .flate{opacity:1;transform:scale(1)}
-/* usynlig lokk – hindrer dra og «lagre bilde som» */
-.foto::after{content:'';position:absolute;inset:0;z-index:3;background:transparent;
-  -webkit-user-select:none;user-select:none;-webkit-touch-callout:none}
-
-.foto-full{width:100vw;margin-left:calc(50% - 50vw);height:clamp(400px,88svh,1000px)}
-.foto-h{aspect-ratio:16/10}
-.foto-p{aspect-ratio:3/4}
-.foto-k{aspect-ratio:1/1}
-
-figure{margin:0}
-figcaption{
-  display:flex;align-items:baseline;gap:16px;flex-wrap:wrap;
-  margin-top:18px;
-}
-figcaption .navn{font-family:var(--serif);font-size:1.25rem;letter-spacing:.01em}
-figcaption .sted{font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:var(--tekst-2)}
-figcaption .kred{margin-left:auto;font-size:9px;letter-spacing:.2em;text-transform:uppercase;color:rgba(180,177,170,.55)}
-
-/* verk-sekvens: ett bilde av gangen */
-.verk{display:grid;gap:clamp(90px,15vh,190px)}
-.verk-rad{display:grid;grid-template-columns:1fr;gap:26px}
-@media(min-width:1000px){
-  .verk-rad{grid-template-columns:repeat(12,1fr);align-items:end;gap:40px}
-  .verk-rad .bilde{grid-column:1 / span 9}
-  .verk-rad .tekst{grid-column:10 / span 3;padding-bottom:6px}
-  .verk-rad.speil .bilde{grid-column:4 / span 9}
-  .verk-rad.speil .tekst{grid-column:1 / span 3;text-align:left}
-  .verk-rad.bred .bilde{grid-column:1 / span 12}
-  .verk-rad.bred .tekst{grid-column:1 / span 12;display:flex;gap:24px;align-items:baseline}
-}
-.verk-rad .tekst .nr{font-size:9px;letter-spacing:.24em;color:rgba(180,177,170,.5);display:block;margin-bottom:10px}
-
-/* ---------- prosjekt ---------- */
-.prosjekt{display:grid;gap:clamp(44px,6vw,90px);align-items:center}
-@media(min-width:1000px){.prosjekt{grid-template-columns:minmax(0,.85fr) minmax(0,1.15fr)}}
-
-.trinn{border-top:1px solid var(--linje);padding:26px 0;display:grid;gap:6px}
-@media(min-width:700px){.trinn{grid-template-columns:60px 200px 1fr;gap:28px;align-items:baseline}}
-.trinn .n{font-family:var(--serif);font-size:1.05rem;color:var(--gull)}
-.trinn h4{margin:0;font-family:var(--sans);font-size:13px;font-weight:400;letter-spacing:.13em;text-transform:uppercase}
-.trinn p{margin:0;font-size:15px}
-
-/* ---------- skjema ---------- */
-.skjema{display:grid;gap:clamp(44px,6vw,90px)}
-@media(min-width:1000px){.skjema{grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr)}}
-
-.felt{margin-bottom:30px}
-label{display:block;font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:var(--tekst-2);margin-bottom:12px}
-input[type=text],input[type=email],input[type=tel],select,textarea{
-  width:100%;background:transparent;border:0;border-bottom:1px solid var(--linje);
-  color:var(--tekst);font-family:var(--sans);font-weight:300;font-size:16px;
-  padding:10px 0 14px;border-radius:0;transition:border-color .5s var(--rolig);
-}
-input:focus,select:focus,textarea:focus{outline:none;border-bottom-color:var(--gull)}
-input::placeholder,textarea::placeholder{color:rgba(180,177,170,.38)}
-textarea{resize:vertical;min-height:96px;line-height:1.7}
-select{appearance:none;-webkit-appearance:none;cursor:pointer;
-  background-image:linear-gradient(45deg,transparent 50%,var(--tekst-2) 50%),linear-gradient(135deg,var(--tekst-2) 50%,transparent 50%);
-  background-position:calc(100% - 11px) 20px, calc(100% - 6px) 20px;background-size:5px 5px;background-repeat:no-repeat}
-select option{background:var(--bg-2);color:var(--tekst)}
-
-.valg{display:flex;flex-wrap:wrap;gap:10px}
-.valg label{
-  margin:0;padding:11px 20px;border:1px solid var(--linje);cursor:pointer;
-  font-size:10px;letter-spacing:.18em;color:var(--tekst-2);
-  transition:border-color .45s var(--rolig),color .45s var(--rolig),background .45s var(--rolig);
-}
-.valg input{position:absolute;opacity:0;pointer-events:none}
-.valg label:hover{border-color:rgba(199,168,109,.5);color:var(--tekst)}
-.valg input:checked+span,.valg label.valgt{color:var(--bg);background:var(--gull);border-color:var(--gull)}
-
-.samtykke{display:flex;gap:14px;align-items:flex-start;margin-bottom:18px;cursor:pointer;
-  text-transform:none;letter-spacing:normal;font-size:inherit;color:inherit}
-.samtykke input{width:15px;height:15px;margin-top:4px;accent-color:var(--gull);flex:none}
-.samtykke span{font-size:13px;color:var(--tekst-2);line-height:1.6}
-
-.hp{position:absolute;left:-9999px;width:1px;height:1px;opacity:0}
-
-.melding{margin-top:26px;padding:20px 24px;border-left:1px solid var(--gull);font-size:14px;color:var(--tekst-2);display:none}
-.melding.vis{display:block;animation:opp .6s var(--rolig) both}
-.melding.feil{border-left-color:#a8564b}
-.melding a{color:var(--gull)}
-
-/* ---------- bunn ---------- */
-footer{border-top:1px solid var(--linje);padding:clamp(70px,10vh,120px) var(--marg) 44px}
-.bunn{display:grid;gap:48px}
-@media(min-width:800px){.bunn{grid-template-columns:1.4fr 1fr 1fr}}
-.bunn h5{margin:0 0 22px;font-family:var(--sans);font-size:10px;font-weight:400;letter-spacing:.24em;text-transform:uppercase;color:var(--gull)}
-.bunn ul{list-style:none;margin:0;padding:0;display:grid;gap:13px}
-.bunn a{color:var(--tekst-2);font-size:14px;transition:color .45s var(--rolig)}
-.bunn a:hover{color:var(--gull)}
-.bunn-strek{margin-top:clamp(56px,8vh,90px);padding-top:26px;border-top:1px solid var(--linje);
-  display:flex;flex-wrap:wrap;gap:14px 30px;justify-content:space-between}
-.bunn-strek small{font-size:11px;color:rgba(180,177,170,.6);letter-spacing:.04em}
-
-/* ---------- animasjon ---------- */
-.opp{opacity:0;transform:translateY(8px);
-  transition:opacity .75s var(--rolig), transform .75s var(--rolig)}
-.opp.inne{opacity:1;transform:none}
-.opp.t1{transition-delay:.09s}
-.opp.t2{transition-delay:.18s}
-.opp.t3{transition-delay:.27s}
-.opp.t4{transition-delay:.36s}
-@keyframes opp{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
-
-@media (prefers-reduced-motion: reduce){
-  *,*::before,*::after{animation-duration:.01ms !important;transition-duration:.01ms !important}
-  html{scroll-behavior:auto}
-  .opp{opacity:1;transform:none}
-  .foto .flate{opacity:1;transform:none}
-}
-
-/* ---------- mobil ---------- */
-@media(max-width:860px){
-  .meny-knapp{display:block}
-  .meny{
-    position:fixed;inset:0;flex-direction:column;justify-content:center;gap:34px;
-    background:rgba(11,11,13,.97);backdrop-filter:blur(24px);
-    opacity:0;pointer-events:none;transition:opacity .55s var(--rolig);
-  }
-  .meny.apen{opacity:1;pointer-events:auto}
-  .meny a{font-size:13px;letter-spacing:.24em}
-  .merke-navn{font-size:1rem;letter-spacing:.2em}
-  .hero{align-items:flex-end}
-  figcaption .kred{margin-left:0;width:100%}
-}
-</style>
 </head>
 
 <body>
 
-<!-- ══════════════ NAVIGASJON ══════════════ -->
+<a class="hopp" href="#innhold">Hopp til innhold</a>
+
 <header class="nav" id="nav">
-  <a class="merke" href="#topp" aria-label="Mirada Nova">
-    <svg class="monogram" viewBox="0 0 40 40" aria-hidden="true">
-      <!-- M -->
-      <path d="M3 29 V11 L11 24 L19 11 V29"/>
-      <!-- N -->
-      <path d="M24 29 V11 L36 29 V11"/>
-      <line x1="3" y1="34.5" x2="36" y2="34.5" stroke-opacity=".45"/>
-    </svg>
+  <a class="merke" href="/" aria-label="Mirada Nova — forsiden">
+    <svg class="monogram" viewBox="0 0 40 40" aria-hidden="true"><path d="M3 29 V11 L11 24 L19 11 V29"/><path d="M24 29 V11 L36 29 V11"/><line x1="3" y1="34.5" x2="36" y2="34.5" stroke-opacity=".45"/></svg>
     <span class="merke-navn">Mirada Nova</span>
   </a>
 
-  <button class="meny-knapp" id="meny-knapp" aria-expanded="false" aria-controls="meny" aria-label="Meny">
+  <button class="meny-knapp" id="meny-knapp" aria-expanded="false" aria-controls="mobilmeny" aria-label="Meny">
     <span></span><span></span><span></span>
   </button>
 
-  <nav class="meny" id="meny">
-    <a href="#manifest">Manifest</a>
-    <a href="#usynlige-rom">Usynlige rom</a>
-    <a href="#verk">Verk</a>
-    <a href="#delta">Delta</a>
+  <nav class="meny" aria-label="Hovedmeny">
+    <a href="/prosjekter/">Prosjekter</a>
+    <a href="/verk/">Verk</a>
+    <a href="/om/">Om</a>
+    <a href="/delta/">Delta</a>
   </nav>
 </header>
 
-<main id="topp">
+<div class="mobilmeny" id="mobilmeny" inert>
+  <nav aria-label="Meny">
+    <a href="/prosjekter/">Prosjekter</a>
+    <a href="/verk/">Verk</a>
+    <a href="/om/">Om</a>
+    <a href="/delta/">Delta</a>
+  </nav>
+  <div class="meny-bunn">
+    <a href="/kontakt/">Kontakt</a>
+    <a href="mailto:post@mirada.no">post@mirada.no</a>
+  </div>
+</div>
+
+<main id="innhold">
 
 <!-- ══════════════ HERO ══════════════ -->
 <section class="hero">
-  <div class="hero-media">
+  <div class="hero-media" data-bilde="takehavet">
     <div class="flate"></div>
-    <!-- Når videoen er klar: legg fila i assets/video/hero.mp4, så spilles den av over stillbildet.
-         Stillbildet blir liggende som plakat og fallback. -->
-    <video id="hero-video" muted loop playsinline preload="none" poster="assets/foto/takehavet-1600.jpg"></video>
+    <!-- Når videoen er klar: legg fila som assets/video/hero.mp4, så spilles den av over stillbildet. -->
+    <video id="hero-video" muted loop playsinline preload="none" poster="/assets/foto/takehavet-1600.jpg"></video>
   </div>
   <div class="hero-slor"></div>
 
   <div class="hero-innhold">
-    <h1 class="display opp">Mirada<br><em>Nova</em></h1>
-
-    <div class="hero-linjer opp t1">
+    <h1 class="display">Mirada<br><em>Nova</em></h1>
+    <div class="hero-linjer">
       <span>Fotografi</span><span>Film</span><span>Bevegelse</span><span>Levende kulturarv</span>
     </div>
-
-    <a class="knapp opp t2" href="#usynlige-rom">
-      <span>Utforsk prosjektet</span><span class="pil">→</span>
-    </a>
   </div>
 
   <div class="bla-ned"><i></i><span class="merkelapp">Bla ned</span></div>
 </section>
 
-<!-- ══════════════ MANIFEST ══════════════ -->
-<section class="rom" id="manifest">
+<!-- ══════════════ AKTUELT PROSJEKT ══════════════ -->
+<section class="rom" style="padding-bottom:0">
   <div class="rom-smal">
-    <div class="seksjonsnr opp"><span class="merkelapp gull">01</span><span class="strek"></span><span class="merkelapp">Manifest</span></div>
+    <div class="seksjonsnr opp">
+      <span class="merkelapp gull">Aktuelt prosjekt</span><span class="strek"></span><span class="merkelapp">2026</span>
+    </div>
+  </div>
+</section>
 
-    <div class="manifest">
-      <div>
+<figure class="foto zoom foto-full parallakse opp" data-bilde="ypsilon-rim"><div class="flate"></div></figure>
+
+<section class="rom rom-tett">
+  <div class="rom-smal">
+    <div class="oppslag topp">
+      <div class="bred-7">
+        <h2 class="tittel-xl opp">Usynlige rom</h2>
+      </div>
+      <div class="smal-4">
+        <p class="ingress opp t1" style="margin-bottom:34px">Et sted du har gått forbi tusen ganger. Én kveld står det noen der.</p>
+        <a class="lenke opp t2" href="/prosjekter/usynlige-rom/"><span>Utforsk prosjektet</span><span class="pil">&rarr;</span></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════ UTVALGTE ARBEIDER ══════════════ -->
+<section class="rom">
+  <div class="rom-smal">
+    <div class="seksjonsnr opp">
+      <span class="merkelapp gull">Utvalgte arbeider</span><span class="strek"></span>
+      <span class="merkelapp">Shujah Malik</span>
+    </div>
+
+    <div class="utvalg">
+      <div class="u1 opp">
+        <figure class="foto zoom " data-bilde="benken" style="aspect-ratio:11091/6932;"><div class="flate"></div></figure>
+        <div class="verk-bildetekst"><span class="navn">Benken</span><span class="sted">Bragernesåsen</span></div>
+      </div>
+
+      <div class="u2 opp t1">
+        <figure class="foto zoom " data-bilde="ypsilon-motlys" style="aspect-ratio:1732/3016;"><div class="flate"></div></figure>
+        <div class="verk-bildetekst"><span class="navn">Motlys</span><span class="sted">Ypsilon</span></div>
+      </div>
+
+      <div class="u3 opp">
+        <figure class="foto zoom " data-bilde="lysspor" style="aspect-ratio:7952/4970;"><div class="flate"></div></figure>
+        <div class="verk-bildetekst"><span class="navn">Lysspor</span><span class="sted">Nattarbeid</span></div>
+      </div>
+    </div>
+
+    <div style="margin-top:clamp(64px,10vh,130px)">
+      <a class="lenke stor opp" href="/verk/"><span>Se alle verk</span><span class="pil">&rarr;</span></a>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════ KORT OM ══════════════ -->
+<section class="rom" style="background:var(--bg-2)">
+  <div class="rom-smal">
+    <div class="oppslag bunn">
+      <div class="bred-8">
         <h2 class="stor-sitat opp">Vi ser etter det som <em>allerede er der</em>, men som ingen har sett ennå.</h2>
       </div>
-      <div class="hoyre">
-        <p class="lys opp t1">Mirada Nova er en kunst- og kulturforening. Vi arbeider i møtet mellom fotografi, film, bevegelse og levende kulturarv.</p>
-        <p class="opp t2">Navnet betyr <em>et nytt blikk</em>. Det er også metoden: å vende tilbake til et sted mange går forbi hver dag, og bli stående til det viser seg fram.</p>
-        <p class="opp t3">Vi holder til i Drammen. Arbeidet er kollektivt — fotografer, dansere, musikere og folk som bare ble med.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- full bredde -->
-<figure class="foto foto-full opp" data-bilde="nordlys">
-  <div class="flate"></div>
-</figure>
-
-<!-- ══════════════ USYNLIGE ROM ══════════════ -->
-<section class="rom" id="usynlige-rom">
-  <div class="rom-smal">
-    <div class="seksjonsnr opp"><span class="merkelapp gull">02</span><span class="strek"></span><span class="merkelapp">Prosjekt 2026</span></div>
-
-    <div class="prosjekt">
-      <figure class="foto opp" data-bilde="ypsilon-motlys" style="aspect-ratio:1732/3016"><div class="flate"></div></figure>
-
-      <div>
-        <h2 class="tittel opp t1">Usynlige rom</h2>
-        <p class="ingress opp t2" style="margin:26px 0 34px;max-width:34ch">Et sted du har gått forbi tusen ganger. Én kveld står det noen der.</p>
-        <p class="opp t3">Vi tar med kamera, lys og mennesker til rom i byen som er tømt for oppmerksomhet — en underetasje, en bro sett fra siden, en trapp ingen bruker lenger. Så fyller vi dem, i noen timer.</p>
-        <p class="opp t3">Resultatet blir et fotografisk og filmisk arbeid som vises offentlig høsten 2026.</p>
-        <a class="knapp gull opp t4" href="#delta" style="margin-top:14px"><span>Bli med som statist</span><span class="pil">→</span></a>
-      </div>
-    </div>
-
-    <div style="margin-top:clamp(70px,11vh,130px)">
-      <div class="trinn opp"><span class="n">01</span><h4>Du melder deg</h4><p>Kort skjema. Ingen erfaring nødvendig — vi leter etter mennesker, ikke skuespillere.</p></div>
-      <div class="trinn opp"><span class="n">02</span><h4>Vi tar kontakt</h4><p>Du får dato, sted og hva du bør ha på deg. Alt foregår i Drammen.</p></div>
-      <div class="trinn opp"><span class="n">03</span><h4>Opptaksdagen</h4><p>Tre til fire timer. Rolig tempo, varm drikke, ingen replikker å pugge.</p></div>
-      <div class="trinn opp" style="border-bottom:1px solid var(--linje)"><span class="n">04</span><h4>Visningen</h4><p>Du inviteres til premieren, og får bildene du er med på.</p></div>
-    </div>
-  </div>
-</section>
-
-<!-- ══════════════ VERK ══════════════ -->
-<section class="rom" id="verk">
-  <div class="rom-smal">
-    <div class="seksjonsnr opp"><span class="merkelapp gull">03</span><span class="strek"></span><span class="merkelapp">Utvalgte arbeider</span></div>
-
-    <div class="verk">
-
-      <div class="verk-rad opp">
-        <figure class="foto bilde" data-bilde="benken" style="aspect-ratio:11091/6932"><div class="flate"></div></figure>
-        <div class="tekst"><span class="nr">01</span><div class="mellomtittel">Benken</div><div class="merkelapp" style="margin-top:8px">Bragernesåsen</div></div>
-      </div>
-
-      <div class="verk-rad speil opp">
-        <figure class="foto bilde" data-bilde="blatimen" style="aspect-ratio:7360/4912"><div class="flate"></div></figure>
-        <div class="tekst"><span class="nr">02</span><div class="mellomtittel">Blåtimen</div><div class="merkelapp" style="margin-top:8px">Elvebredden</div></div>
-      </div>
-
-      <div class="verk-rad bred opp">
-        <figure class="foto foto-full bilde" style="height:clamp(360px,82svh,900px)" data-bilde="lysspor"><div class="flate"></div></figure>
-        <div class="tekst"><span class="nr">03</span><div class="mellomtittel">Lysspor</div><div class="merkelapp">Nattarbeid</div></div>
-      </div>
-
-      <div class="verk-rad opp">
-        <figure class="foto bilde" data-bilde="kirken-var" style="aspect-ratio:5851/3657"><div class="flate"></div></figure>
-        <div class="tekst"><span class="nr">04</span><div class="mellomtittel">Kirsebærtid</div><div class="merkelapp" style="margin-top:8px">Bragernes kirke</div></div>
-      </div>
-
-      <div class="verk-rad speil opp">
-        <figure class="foto bilde" data-bilde="solsoyle" style="aspect-ratio:6060/3788"><div class="flate"></div></figure>
-        <div class="tekst"><span class="nr">05</span><div class="mellomtittel">Solsøyle</div><div class="merkelapp" style="margin-top:8px">Skoger</div></div>
-      </div>
-
-      <div class="verk-rad opp">
-        <figure class="foto bilde" data-bilde="pipedrom" style="aspect-ratio:4875/4875"><div class="flate"></div></figure>
-        <div class="tekst"><span class="nr">06</span><div class="mellomtittel">Pipedrøm</div><div class="merkelapp" style="margin-top:8px">Fjell, desember</div></div>
-      </div>
-
-      <div class="verk-rad bred opp">
-        <figure class="foto foto-full bilde" style="height:clamp(360px,82svh,900px)" data-bilde="ypsilon-rim"><div class="flate"></div></figure>
-        <div class="tekst"><span class="nr">07</span><div class="mellomtittel">Ypsilon i rim</div><div class="merkelapp">Vinternatt</div></div>
-      </div>
-
-      <div class="verk-rad speil opp">
-        <figure class="foto bilde" data-bilde="elva-morgen" style="aspect-ratio:7952/5304"><div class="flate"></div></figure>
-        <div class="tekst"><span class="nr">08</span><div class="mellomtittel">Elva om morgenen</div><div class="merkelapp" style="margin-top:8px">Drammenselva</div></div>
-      </div>
-
-      <div class="verk-rad opp">
-        <figure class="foto bilde" data-bilde="kirken-kveld" style="aspect-ratio:6664/4587"><div class="flate"></div></figure>
-        <div class="tekst"><span class="nr">09</span><div class="mellomtittel">Spiret</div><div class="merkelapp" style="margin-top:8px">15. september</div></div>
-      </div>
-
-      <div class="verk-rad speil opp">
-        <figure class="foto bilde" data-bilde="fjell-host" style="aspect-ratio:5579/3487"><div class="flate"></div></figure>
-        <div class="tekst"><span class="nr">10</span><div class="mellomtittel">74–81</div><div class="merkelapp" style="margin-top:8px">Fjell om høsten</div></div>
-      </div>
-
-      <div class="verk-rad bred opp">
-        <figure class="foto foto-full bilde" style="height:clamp(360px,82svh,900px)" data-bilde="utsikt-fjell"><div class="flate"></div></figure>
-        <div class="tekst"><span class="nr">11</span><div class="mellomtittel">Utsikt</div><div class="merkelapp">Fra Fjell</div></div>
-      </div>
-
-      <div class="verk-rad opp">
-        <figure class="foto bilde" data-bilde="brua" style="aspect-ratio:4414/3310"><div class="flate"></div></figure>
-        <div class="tekst"><span class="nr">12</span><div class="mellomtittel">Brua</div><div class="merkelapp" style="margin-top:8px">Drammen, natt</div></div>
-      </div>
-
-      <div class="verk-rad speil opp">
-        <figure class="foto bilde" data-bilde="austad" style="aspect-ratio:5200/4088"><div class="flate"></div></figure>
-        <div class="tekst"><span class="nr">13</span><div class="mellomtittel">Austad gård</div><div class="merkelapp" style="margin-top:8px">Vinter</div></div>
-      </div>
-
-      <div class="verk-rad opp">
-        <figure class="foto bilde" data-bilde="bygarden" style="aspect-ratio:5276/3957"><div class="flate"></div></figure>
-        <div class="tekst"><span class="nr">14</span><div class="mellomtittel">Bygården</div><div class="merkelapp" style="margin-top:8px">Drammen sentrum</div></div>
-      </div>
-
-    </div>
-
-    <p class="opp" style="margin-top:clamp(60px,9vh,110px);font-size:12px;letter-spacing:.06em;color:rgba(180,177,170,.55);max-width:60ch">
-      Samtlige fotografier © <span class="js-aar">2026</span> Shujah Malik. Alle rettigheter forbeholdt.
-      Bildene er beskyttet av åndsverkloven og kan ikke lastes ned, kopieres, videreformidles eller brukes
-      i noen sammenheng — kommersiell eller privat — uten skriftlig samtykke fra fotografen.
-    </p>
-  </div>
-</section>
-
-<!-- ══════════════ DELTA ══════════════ -->
-<section class="rom" id="delta" style="background:var(--bg-2)">
-  <div class="rom-smal">
-    <div class="seksjonsnr opp"><span class="merkelapp gull">04</span><span class="strek"></span><span class="merkelapp">Delta</span></div>
-
-    <div class="skjema">
-      <div>
-        <h2 class="tittel opp">Bli statist</h2>
-        <p class="ingress opp t1" style="margin:24px 0 30px;max-width:26ch">Vi trenger mennesker. Ikke skuespillere.</p>
-        <p class="opp t2">Er du over 16 år og har noen timer å avse, er du aktuell. Alle roller er ubetalte, men du får bildene du er med på — og en invitasjon til premieren.</p>
-      </div>
-
-      <div class="opp t1">
-        <form id="statist-form" action="https://formspree.io/f/DITT_FORM_ID" method="POST" novalidate>
-          <input type="hidden" name="_subject" value="Statistpåmelding — Usynlige rom">
-          <input type="text" name="_gotcha" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
-
-          <div class="felt">
-            <label for="navn">Navn</label>
-            <input type="text" id="navn" name="Navn" required autocomplete="name" placeholder="Fornavn og etternavn">
-          </div>
-
-          <div class="felt">
-            <label for="epost">E-post</label>
-            <input type="email" id="epost" name="E-post" required autocomplete="email" placeholder="deg@eksempel.no">
-          </div>
-
-          <div class="felt">
-            <label for="telefon">Telefon <span style="text-transform:none;letter-spacing:0">(valgfritt)</span></label>
-            <input type="tel" id="telefon" name="Telefon" autocomplete="tel" placeholder="+47">
-          </div>
-
-          <div class="felt">
-            <label for="alder">Aldersgruppe</label>
-            <select id="alder" name="Aldersgruppe" required>
-              <option value="">Velg</option>
-              <option>16–25</option><option>26–40</option><option>41–60</option><option>Over 60</option>
-            </select>
-          </div>
-
-          <div class="felt">
-            <label>Når passer det?</label>
-            <div class="valg" id="tider">
-              <label><input type="checkbox" name="Tilgjengelighet" value="Hverdager, dagtid"><span>Hverdager, dagtid</span></label>
-              <label><input type="checkbox" name="Tilgjengelighet" value="Hverdager, kveld"><span>Hverdager, kveld</span></label>
-              <label><input type="checkbox" name="Tilgjengelighet" value="Helger"><span>Helger</span></label>
-            </div>
-          </div>
-
-          <div class="felt">
-            <label for="motivasjon">Noen ord om deg <span style="text-transform:none;letter-spacing:0">(valgfritt)</span></label>
-            <textarea id="motivasjon" name="Om deg" rows="3" placeholder="Hvorfor har du lyst til å være med?"></textarea>
-          </div>
-
-          <div class="felt" style="margin-bottom:34px">
-            <label class="samtykke">
-              <input type="checkbox" name="Samtykke bilde" value="Ja" required>
-              <span>Jeg samtykker til at bilder og film av meg kan brukes i prosjektet <em>Usynlige rom</em>. <span style="color:var(--gull)">*</span></span>
-            </label>
-            <label class="samtykke">
-              <input type="checkbox" name="Samtykke kontakt" value="Ja">
-              <span>Jeg vil gjerne høre om framtidige prosjekter.</span>
-            </label>
-          </div>
-
-          <button type="submit" class="knapp gull" id="send" style="width:100%;justify-content:center">
-            <span>Send påmelding</span><span class="pil">→</span>
-          </button>
-
-          <div class="melding" id="form-status" role="status" aria-live="polite"></div>
-        </form>
+      <div class="smal-3">
+        <p class="opp t1" style="margin-bottom:30px">Mirada Nova er en kunst- og kulturforening i Drammen, i møtet mellom fotografi, film, bevegelse og levende kulturarv.</p>
+        <a class="lenke opp t2" href="/om/"><span>Om Mirada Nova</span><span class="pil">&rarr;</span></a>
       </div>
     </div>
   </div>
@@ -673,32 +172,39 @@ footer{border-top:1px solid var(--linje);padding:clamp(70px,10vh,120px) var(--ma
 
 </main>
 
-<!-- ══════════════ BUNN ══════════════ -->
 <footer>
   <div class="bunn">
     <div>
-      <a class="merke" href="#topp" style="margin-bottom:26px">
-        <svg class="monogram" viewBox="0 0 40 40" aria-hidden="true">
-          <path d="M3 29 V11 L11 24 L19 11 V29"/><path d="M24 29 V11 L36 29 V11"/>
-          <line x1="3" y1="34.5" x2="36" y2="34.5" stroke-opacity=".45"/>
-        </svg>
+      <a class="merke" href="/" style="margin-bottom:26px">
+        <svg class="monogram" viewBox="0 0 40 40" aria-hidden="true"><path d="M3 29 V11 L11 24 L19 11 V29"/><path d="M24 29 V11 L36 29 V11"/><line x1="3" y1="34.5" x2="36" y2="34.5" stroke-opacity=".45"/></svg>
         <span class="merke-navn">Mirada Nova</span>
       </a>
-      <p style="max-width:34ch;font-size:14px">Kunst- og kulturforening i Drammen. Fotografi, film, bevegelse og levende kulturarv. I samarbeid med St. Lazarus Corp.</p>
+      <p style="max-width:32ch;font-size:14px">Kunst- og kulturforening i Drammen. Fotografi, film, bevegelse og levende kulturarv.</p>
+    </div>
+
+    <div>
+      <h5>Utforsk</h5>
+      <ul>
+        <li><a href="/prosjekter/">Prosjekter</a></li>
+        <li><a href="/prosjekter/usynlige-rom/">Usynlige rom</a></li>
+        <li><a href="/verk/">Verk</a></li>
+        <li><a href="/om/">Om Mirada Nova</a></li>
+      </ul>
     </div>
 
     <div>
       <h5>Kontakt</h5>
       <ul>
         <li><a href="mailto:post@mirada.no">post@mirada.no</a></li>
-        <li><a href="#delta">Bli statist</a></li>
-        <li><a href="#verk">Verk</a></li>
+        <li><a href="/delta/">Delta</a></li>
+        <li><a href="/kontakt/">Kontaktside</a></li>
       </ul>
     </div>
 
     <div>
       <h5>Følg</h5>
       <ul>
+        <!-- TODO: bytt # med de virkelige profilene -->
         <li><a href="#" rel="noopener">Instagram</a></li>
         <li><a href="#" rel="noopener">Facebook</a></li>
       </ul>
@@ -706,159 +212,11 @@ footer{border-top:1px solid var(--linje);padding:clamp(70px,10vh,120px) var(--ma
   </div>
 
   <div class="bunn-strek">
-    <small>© <span class="js-aar">2026</span> Mirada Nova Kunst- og kulturforening</small>
-    <small>Fotografi © <span class="js-aar">2026</span> Shujah Malik — alle rettigheter forbeholdt</small>
+    <small>&copy; <span class="js-aar">2026</span> Mirada Nova Kunst- og kulturforening</small>
+    <small>Fotografi &copy; <span class="js-aar">2026</span> Shujah Malik — alle rettigheter forbeholdt</small>
   </div>
 </footer>
 
-<script>
-(function(){
-  'use strict';
-
-  var støtterWebp = (function(){
-    try{ return document.createElement('canvas').toDataURL('image/webp').indexOf('data:image/webp')===0; }
-    catch(e){ return false; }
-  })();
-
-  /* ---------- laste bilder rolig inn ---------- */
-  var foto = [].slice.call(document.querySelectorAll('.foto[data-bilde]'));
-
-  function last(fig){
-    if(fig.dataset.lastet) return;
-    fig.dataset.lastet = '1';
-    var slug = fig.dataset.bilde;
-    var bred = Math.max(window.innerWidth, document.documentElement.clientWidth) * (window.devicePixelRatio>1.5?1.5:1);
-    var str  = bred > 1650 ? 2400 : (bred > 1000 ? 1600 : 1000);
-    var sti  = 'assets/foto/' + slug + '-' + str + (støtterWebp ? '.webp' : '.jpg');
-    if(!støtterWebp) sti = 'assets/foto/' + slug + '-1600.jpg';
-
-    var f = fig.querySelector('.flate');
-    var i = new Image();
-    i.onload  = function(){ f.style.backgroundImage = 'url("'+sti+'")'; fig.classList.add('lastet'); };
-    i.onerror = function(){ f.style.backgroundImage = 'url("assets/foto/'+slug+'-1600.jpg")'; fig.classList.add('lastet'); };
-    i.src = sti;
-  }
-
-  /* ---------- rolige innfaringer ---------- */
-  var animerte = [].slice.call(document.querySelectorAll('.opp'));
-
-  if('IntersectionObserver' in window){
-    var obsFoto = new IntersectionObserver(function(rader){
-      rader.forEach(function(r){ if(r.isIntersecting){ last(r.target); obsFoto.unobserve(r.target); } });
-    }, {rootMargin:'400px 0px'});
-    foto.forEach(function(f){ obsFoto.observe(f); });
-
-    var obsOpp = new IntersectionObserver(function(rader){
-      rader.forEach(function(r){ if(r.isIntersecting){ r.target.classList.add('inne'); obsOpp.unobserve(r.target); } });
-    }, {threshold:.12, rootMargin:'0px 0px -8% 0px'});
-    animerte.forEach(function(e){ obsOpp.observe(e); });
-  } else {
-    foto.forEach(last);
-    animerte.forEach(function(e){ e.classList.add('inne'); });
-  }
-
-  /* ---------- navigasjon ---------- */
-  var nav = document.getElementById('nav'), sist = 0;
-  addEventListener('scroll', function(){
-    var y = pageYOffset;
-    nav.classList.toggle('festet', y > 60);
-    nav.classList.toggle('skjult', y > 560 && y > sist && !meny.classList.contains('apen'));
-    sist = y;
-  }, {passive:true});
-
-  var knapp = document.getElementById('meny-knapp'), meny = document.getElementById('meny');
-  knapp.addEventListener('click', function(){
-    var apen = meny.classList.toggle('apen');
-    knapp.setAttribute('aria-expanded', apen);
-    document.body.style.overflow = apen ? 'hidden' : '';
-  });
-  meny.addEventListener('click', function(e){
-    if(e.target.tagName === 'A'){
-      meny.classList.remove('apen'); knapp.setAttribute('aria-expanded','false'); document.body.style.overflow='';
-    }
-  });
-
-  /* ---------- årstall ---------- */
-  var år = new Date().getFullYear();
-  [].forEach.call(document.querySelectorAll('.js-aar'), function(e){ e.textContent = år; });
-
-  /* ---------- valg-knapper ---------- */
-  [].forEach.call(document.querySelectorAll('.valg label'), function(l){
-    var i = l.querySelector('input');
-    i.addEventListener('change', function(){ l.classList.toggle('valgt', i.checked); });
-  });
-
-  /* ---------- video (når den finnes) ---------- */
-  var vid = document.getElementById('hero-video');
-  if(vid){
-    fetch('assets/video/hero.mp4', {method:'HEAD'}).then(function(r){
-      if(!r.ok) return;
-      vid.src = 'assets/video/hero.mp4';
-      vid.load();
-      vid.addEventListener('canplay', function(){ vid.classList.add('klar'); vid.play().catch(function(){}); });
-    }).catch(function(){});
-  }
-
-  /* ---------- vern av fotografiene ---------- */
-  document.addEventListener('contextmenu', function(e){
-    if(e.target.closest('.foto') || e.target.tagName === 'IMG'){ e.preventDefault(); }
-  });
-  document.addEventListener('dragstart', function(e){
-    if(e.target.closest('.foto') || e.target.tagName === 'IMG'){ e.preventDefault(); }
-  });
-
-  /* ---------- skjema ---------- */
-  var form = document.getElementById('statist-form'),
-      send = document.getElementById('send'),
-      ut   = document.getElementById('form-status');
-
-  function si(type, html){
-    ut.className = 'melding vis' + (type==='feil' ? ' feil' : '');
-    ut.innerHTML = html;
-  }
-
-  form.addEventListener('submit', function(e){
-    e.preventDefault();
-
-    if(!form.navn.value.trim())  return si('feil','Vi trenger navnet ditt.');
-    if(!/^[^@\s]+@[^@\s]+\.[^@\s]{2,}$/.test(form.epost.value)) return si('feil','Sjekk e-postadressen.');
-    if(!form.alder.value)        return si('feil','Velg aldersgruppe.');
-    if(!form['Samtykke bilde'].checked) return si('feil','Du må samtykke til bruk av bilde for å kunne delta.');
-
-    /* Midlertidig: ingen skjematjeneste koblet på ennå — sendes som e-post.
-       Når Formspree er satt opp, byttes DITT_FORM_ID i form-action, og denne grenen kjører aldri. */
-    if(form.action.indexOf('DITT_FORM_ID') !== -1){
-      var d = new FormData(form), samlet = {};
-      d.forEach(function(v,k){
-        if(k.charAt(0)==='_' || !String(v).trim()) return;
-        (samlet[k] = samlet[k] || []).push(v);
-      });
-      var linjer = Object.keys(samlet).map(function(k){ return k + ': ' + samlet[k].join(', '); });
-      var mottaker = ['malikdilnawaz20','gmail.com'].join('@');
-      location.href = 'mailto:' + mottaker
-        + '?subject=' + encodeURIComponent('Statistpåmelding — Usynlige rom')
-        + '&body='    + encodeURIComponent('Påmelding som statist til Usynlige rom\n\n' + linjer.join('\n') + '\n\n(Sendt fra mirada.no)');
-      return si('ok','<strong>E-postprogrammet ditt åpnes nå</strong> med påmeldingen ferdig utfylt — trykk send, så er du påmeldt.<br>Skjer ingenting? Send opplysningene til <a href="mailto:'+mottaker+'">'+mottaker+'</a>.');
-    }
-
-    send.disabled = true;
-    send.querySelector('span').textContent = 'Sender';
-
-    fetch(form.action, {method:'POST', body:new FormData(form), headers:{Accept:'application/json'}})
-      .then(function(r){
-        if(!r.ok) throw 0;
-        form.style.display = 'none';
-        si('ok','<strong>Takk — påmeldingen er registrert.</strong><br>Vi tar kontakt med dato og sted i god tid før opptak.');
-      })
-      .catch(function(){
-        send.disabled = false;
-        send.querySelector('span').textContent = 'Send påmelding';
-        si('feil','Noe gikk galt. Send gjerne en e-post til <a href="mailto:post@mirada.no">post@mirada.no</a> i stedet.');
-      });
-  });
-
-})();
-</script>
-
+<script src="/assets/js/mirada.js"></script>
 </body>
 </html>
