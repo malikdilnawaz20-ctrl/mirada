@@ -737,6 +737,19 @@ footer{border-top:1px solid var(--linje);padding:clamp(70px,10vh,120px) var(--ma
 .plassholder span{font-size:10px;letter-spacing:.24em;text-transform:uppercase;color:var(--tekst-3);
   max-width:24ch;line-height:2}
 
+.port-topp .nr{display:none}
+
+/* film og bevegelse */
+.film{display:grid;gap:clamp(46px,8vh,110px)}
+.film-post{display:grid;gap:22px}
+@media(min-width:900px){.film-post{grid-template-columns:minmax(0,7fr) minmax(0,4fr);gap:clamp(30px,4vw,60px);align-items:start}}
+.film-ramme{position:relative;width:100%;aspect-ratio:16/9;background:#000;overflow:hidden;border:1px solid var(--linje)}
+.film-ramme iframe{position:absolute;inset:0;width:100%;height:100%;border:0;display:block}
+.film-post h3{margin:0 0 12px;font-family:var(--serif);font-weight:300;font-size:clamp(1.35rem,2.4vw,1.9rem);line-height:1.15}
+.film-post p{font-size:15px;margin:0 0 16px}
+.film-rolle{font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:var(--gull);display:block;margin-bottom:14px}
+.film-credit{font-size:12.5px;color:var(--tekst-3);line-height:1.8}
+
 .pris{font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:var(--gull);
   display:block;margin-top:14px}
 
