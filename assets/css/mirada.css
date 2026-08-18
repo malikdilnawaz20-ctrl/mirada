@@ -271,6 +271,7 @@ em{font-style:italic}
    SEKSJONER OG RYTME
    ============================================================ */
 section{position:relative}
+section[id]{scroll-margin-top:calc(var(--nav-h) + 20px)}
 .rom{padding:clamp(100px,15vh,200px) var(--marg)}
 .rom-tett{padding-top:clamp(60px,8vh,110px)}
 .rom-smal{max-width:1500px;margin-inline:auto}
