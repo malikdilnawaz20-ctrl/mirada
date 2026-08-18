@@ -1,23 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url><loc>https://mirada.no/</loc><changefreq>monthly</changefreq><priority>1.0</priority></url>
-  <url><loc>https://mirada.no/prosjekter/</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://mirada.no/prosjekter/</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
   <url><loc>https://mirada.no/prosjekter/usynlige-rom/</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://mirada.no/verk/</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://mirada.no/fotograf/</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://mirada.no/prosjekter/fjell-skole/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://mirada.no/verk/</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://mirada.no/fotograf/</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://mirada.no/fotograf/cv/</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://mirada.no/fotograf/utstillinger/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://mirada.no/fotograf/publikasjoner/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://mirada.no/fotograf/presse/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://mirada.no/fotograf/film/</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://mirada.no/fotograf/oppdrag/</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://mirada.no/om/</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://mirada.no/delta/</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://mirada.no/kontakt/</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://mirada.no/prosjekter/fjell-skole/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://mirada.no/kunstner/</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://mirada.no/kunstner/biografi/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://mirada.no/kunstner/publikasjoner/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://mirada.no/kunstner/prosjekter/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://mirada.no/kunstner/galleri/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://mirada.no/kunstner/presse/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://mirada.no/kunstner/kontakt/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://mirada.no/modell/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://mirada.no/modell/portrett/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://mirada.no/modell/base/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://mirada.no/kunstner/film/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://mirada.no/delta/modell/</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://mirada.no/delta/modell/portrett/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://mirada.no/delta/modell/base/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://mirada.no/kontakt/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
 </urlset>

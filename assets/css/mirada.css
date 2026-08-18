@@ -765,3 +765,209 @@ footer{border-top:1px solid var(--linje);padding:clamp(70px,10vh,120px) var(--ma
 .fakta dt,.fakta .n{font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:var(--tekst-3);
   display:block;margin-bottom:10px}
 .fakta .v{display:block;font-family:var(--serif);font-size:clamp(1.2rem,2vw,1.6rem);line-height:1.3}
+
+/* ============================================================
+   NIVÅ 2 — 2026→2029
+   Brødsmuler · store bildekort · tidslinje · utforsk videre
+   · flytende kapittelnavigasjon · sideoverganger
+   Progressiv forbedring: alt har fallback i eldre nettlesere.
+   ============================================================ */
+
+/* ---------- sideoverganger (View Transitions) ---------- */
+@view-transition{navigation:auto}
+@media(prefers-reduced-motion:no-preference){
+  ::view-transition-old(root){animation:vt-ut 260ms var(--rolig) both}
+  ::view-transition-new(root){animation:vt-inn 420ms var(--rolig) both}
+}
+@keyframes vt-ut{to{opacity:0}}
+@keyframes vt-inn{from{opacity:0;transform:translateY(8px)}}
+
+/* ---------- brødsmulesti ---------- */
+.brodsmule{
+  display:flex;flex-wrap:wrap;align-items:center;gap:6px 12px;
+  font-size:10px;letter-spacing:.2em;text-transform:uppercase;
+  color:var(--tekst-3);margin:0 0 clamp(18px,3vh,30px);
+}
+.brodsmule a{color:var(--tekst-2);transition:color .5s var(--rolig)}
+.brodsmule a:hover{color:var(--gull)}
+.brodsmule .skille{opacity:.4}
+.brodsmule [aria-current]{color:var(--gull)}
+
+/* ---------- store bildekort ---------- */
+.kort-rad{
+  display:grid;gap:clamp(16px,2.2vw,34px);
+  grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));
+}
+.kort-rad.to{grid-template-columns:repeat(auto-fit,minmax(min(100%,380px),1fr))}
+.kort{
+  position:relative;display:block;overflow:hidden;
+  background:#141416;border:1px solid rgba(255,255,255,.10);
+  isolation:isolate;
+  /* kortet bærer alltid mørkt fotografi — låser paletten uansett omgivelse */
+  --k-tekst:#F4F1EB; --k-tekst-2:#B4B1AA; --k-tekst-3:rgba(180,177,170,.62); --k-gull:#C7A86D;
+  color:var(--k-tekst);
+}
+.kort h3{color:var(--k-tekst)}
+.kort .kort-tekst{color:var(--k-tekst-2)}
+.kort .kort-meta{color:var(--k-tekst-3)}
+.kort .kort-topp .merkelapp{color:var(--k-gull)}
+.kort .kort-mer{color:var(--k-gull)}
+.kort .kort-foto{position:absolute;inset:0;z-index:0}
+.kort .kort-foto .flate{
+  position:absolute;inset:0;background-size:cover;background-position:center;
+  transform:scale(1.001);transition:transform 1.5s var(--rolig),filter 1.5s var(--rolig);
+  filter:saturate(.9) brightness(.82);
+}
+.kort::after{
+  content:'';position:absolute;inset:0;z-index:1;pointer-events:none;
+  background:linear-gradient(to top,rgba(11,11,13,.94) 0%,rgba(11,11,13,.55) 42%,rgba(11,11,13,.12) 78%);
+  transition:opacity .9s var(--rolig);
+}
+.kort-innhold{
+  position:relative;z-index:2;display:flex;flex-direction:column;justify-content:flex-end;
+  min-height:clamp(300px,42vh,460px);padding:clamp(22px,3vw,36px);
+}
+.kort-topp{display:flex;gap:14px;align-items:baseline;margin-bottom:auto}
+.kort-topp .merkelapp{color:var(--gull)}
+.kort h3{
+  margin:0;font-family:var(--serif);font-weight:300;
+  font-size:clamp(1.5rem,3vw,2.3rem);line-height:1.08;letter-spacing:-.01em;
+  text-wrap:balance;
+}
+.kort .kort-meta{
+  font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--tekst-3);
+  margin-top:12px;display:flex;gap:8px 18px;flex-wrap:wrap;
+}
+.kort .kort-tekst{
+  font-size:14px;color:var(--tekst-2);margin:14px 0 0;max-width:44ch;line-height:1.6;
+  text-wrap:pretty;
+}
+.kort .kort-mer{
+  margin-top:20px;font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:var(--gull);
+  display:inline-flex;gap:10px;align-items:center;
+}
+.kort .kort-mer .pil{transition:transform .7s var(--rolig)}
+/* rolig avsløring på hover — teksten ligger der, men trer fram */
+@media(hover:hover) and (min-width:760px){
+  .kort .kort-tekst,.kort .kort-meta{
+    opacity:0;transform:translateY(8px);
+    transition:opacity .8s var(--rolig),transform .8s var(--rolig);
+  }
+  .kort:hover .kort-tekst,.kort:focus-visible .kort-tekst,
+  .kort:hover .kort-meta,.kort:focus-visible .kort-meta{opacity:1;transform:none}
+  .kort:hover .kort-tekst{transition-delay:.06s}
+}
+.kort:hover .kort-foto .flate,.kort:focus-visible .kort-foto .flate{
+  transform:scale(1.045);filter:saturate(1) brightness(.92);
+}
+.kort:hover .kort-mer .pil{transform:translateX(6px)}
+.kort:hover::after{opacity:.88}
+/* et høyt kort til det viktigste */
+.kort.h{grid-column:span 2}
+@media(max-width:820px){.kort.h{grid-column:span 1}}
+.kort.h .kort-innhold{min-height:clamp(360px,56vh,620px)}
+
+/* ---------- modulkort uten foto (portalen) ---------- */
+.modul-rad{display:grid;gap:1px;background:var(--linje);border:1px solid var(--linje)}
+@media(min-width:700px){.modul-rad{grid-template-columns:repeat(2,1fr)}}
+@media(min-width:1100px){.modul-rad{grid-template-columns:repeat(3,1fr)}}
+.modul{
+  background:var(--bg);padding:clamp(26px,3vw,40px);display:flex;flex-direction:column;
+  min-height:200px;transition:background .7s var(--rolig);
+}
+.modul:hover{background:var(--bg-2)}
+.modul h3{margin:0 0 10px;font-family:var(--serif);font-weight:300;font-size:clamp(1.3rem,2.2vw,1.75rem);line-height:1.12}
+.modul p{margin:0;font-size:13.5px;color:var(--tekst-2);line-height:1.6;max-width:38ch;text-wrap:pretty}
+.modul .modul-mer{margin-top:auto;padding-top:22px;font-size:10px;letter-spacing:.22em;
+  text-transform:uppercase;color:var(--gull);display:inline-flex;gap:10px;align-items:center}
+.modul:hover .modul-mer .pil{transform:translateX(6px);transition:transform .7s var(--rolig)}
+
+/* ---------- tidslinje (CV) ---------- */
+.tidslinje{position:relative;margin-top:clamp(30px,5vh,56px)}
+.tidslinje::before{
+  content:'';position:absolute;left:0;top:6px;bottom:6px;width:1px;background:var(--linje-2);
+}
+@media(min-width:800px){.tidslinje::before{left:118px}}
+.tl{position:relative;padding:0 0 clamp(30px,4.5vh,52px) 26px;display:grid;gap:6px}
+@media(min-width:800px){
+  .tl{grid-template-columns:118px minmax(0,1fr);gap:0 46px;padding-left:0}
+  .tl>.tl-innhold{padding-left:0}
+}
+.tl::before{
+  content:'';position:absolute;left:-4px;top:9px;width:9px;height:9px;border-radius:50%;
+  background:var(--bg);border:1px solid var(--gull);
+}
+@media(min-width:800px){.tl::before{left:114px}}
+.tl .aar{
+  font-family:var(--serif);font-size:clamp(1.1rem,1.8vw,1.4rem);color:var(--gull);
+  line-height:1.4;letter-spacing:.02em;
+}
+@media(min-width:800px){.tl .aar{text-align:right;padding-right:0}}
+.tl h3{margin:0 0 6px;font-family:var(--serif);font-weight:300;
+  font-size:clamp(1.2rem,2.2vw,1.6rem);line-height:1.15;text-wrap:balance}
+.tl p{margin:0;font-size:14px;color:var(--tekst-2);max-width:56ch;line-height:1.65;text-wrap:pretty}
+.tl .kat{font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--tekst-3);
+  display:block;margin-bottom:8px}
+
+/* ---------- utforsk videre ---------- */
+.videre{border-top:1px solid var(--linje);padding:clamp(46px,8vh,96px) 0 clamp(40px,7vh,80px)}
+.videre .du-ser{font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:var(--tekst-3)}
+.videre .na{font-family:var(--serif);font-size:clamp(1.4rem,3vw,2rem);font-weight:300;
+  margin:8px 0 clamp(28px,4vh,44px);line-height:1.15}
+.videre-rad{display:grid;gap:1px;background:var(--linje);border-top:1px solid var(--linje)}
+@media(min-width:640px){.videre-rad{grid-template-columns:repeat(2,1fr)}}
+@media(min-width:1000px){.videre-rad{grid-template-columns:repeat(4,1fr)}}
+.videre-kort{
+  background:var(--bg);padding:26px 24px 30px;display:flex;flex-direction:column;gap:8px;
+  transition:background .7s var(--rolig);min-height:150px;
+}
+.videre-kort:hover{background:var(--bg-2)}
+.videre-kort .nr{font-family:var(--serif);color:var(--gull);font-size:.95rem}
+.videre-kort h4{margin:0;font-family:var(--serif);font-weight:300;font-size:1.2rem;line-height:1.2}
+.videre-kort p{margin:0;font-size:12.5px;color:var(--tekst-3);line-height:1.55}
+.videre-kort .pil{margin-top:auto;color:var(--gull);font-size:13px;transition:transform .7s var(--rolig)}
+.videre-kort:hover .pil{transform:translateX(6px)}
+
+/* ---------- flytende kapittelnavigasjon ---------- */
+.kapitler{
+  position:fixed;right:clamp(14px,2.2vw,34px);top:50%;transform:translateY(-50%);
+  z-index:60;display:none;flex-direction:column;gap:2px;
+}
+@media(min-width:1180px){.kapitler{display:flex}}
+@media(prefers-reduced-motion:reduce){.kapitler{transition:none}}
+.kapitler a{
+  display:flex;align-items:center;justify-content:flex-end;gap:12px;
+  padding:7px 0;font-size:9.5px;letter-spacing:.2em;text-transform:uppercase;
+  color:var(--tekst-3);transition:color .6s var(--rolig);
+}
+.kapitler a .strek-k{
+  width:22px;height:1px;background:currentColor;opacity:.5;flex:none;
+  transition:width .6s var(--rolig),opacity .6s var(--rolig);
+}
+.kapitler a .navn-k{
+  opacity:0;transform:translateX(6px);transition:opacity .6s var(--rolig),transform .6s var(--rolig);
+  white-space:nowrap;
+}
+.kapitler:hover a .navn-k{opacity:1;transform:none}
+.kapitler a:hover,.kapitler a.aktiv{color:var(--gull)}
+.kapitler a.aktiv .strek-k{width:38px;opacity:1}
+.kapitler a.aktiv .navn-k{opacity:1;transform:none}
+/* på lyse seksjoner */
+.kapitler.pa-lyst a{color:rgba(21,21,26,.5)}
+.kapitler.pa-lyst a:hover,.kapitler.pa-lyst a.aktiv{color:#7A5F2A}
+
+
+/* fallback: .rull som .opp der rullestyrt animasjon mangler */
+/* .rull fader inn via IntersectionObserver (mirada.js). Uten JS vises alt. */
+.rull.opp{opacity:0;transform:translateY(10px);
+  transition:opacity .8s var(--rolig),transform .8s var(--rolig)}
+.rull.opp.inne{opacity:1;transform:none}
+
+/* visuell mobilmeny med beskrivelser */
+.mobilmeny .mm-navn{display:block}
+.mobilmeny .mm-desc{display:block;font-family:var(--sans);font-size:11px;letter-spacing:.18em;
+  text-transform:uppercase;color:var(--tekst-3);margin-top:8px;line-height:1.5}
+
+/* fire kort: 2×2 framfor en foreldrelos fjerdedel */
+@media(min-width:820px){.kort-rad.fire{grid-template-columns:repeat(2,1fr)}}
+.kort-rad.fire .kort-innhold{min-height:clamp(340px,48vh,520px)}

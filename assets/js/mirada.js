@@ -363,3 +363,67 @@
   });
 
 })();
+
+/* ============================================================
+   NIVÅ 2 — flytende kapittelnavigasjon + innfading uten IO-fallback
+   ============================================================ */
+(function(){
+  'use strict';
+
+  /* ---------- kapittelnavigasjon ---------- */
+  var kapNav = document.getElementById('kapitler');
+  if (kapNav) {
+    var lenker = [].slice.call(kapNav.querySelectorAll('a[data-kap]'));
+    var mal = lenker.map(function(a){
+      return {a:a, el:document.getElementById(a.dataset.kap)};
+    }).filter(function(x){ return x.el; });
+
+    if (!mal.length) { kapNav.remove(); }
+    else {
+      var siste = null;
+      var oppdater = function(){
+        var midt = window.scrollY + window.innerHeight * 0.38;
+        var valgt = mal[0];
+        for (var i = 0; i < mal.length; i++) {
+          if (mal[i].el.offsetTop <= midt) valgt = mal[i];
+        }
+        if (valgt !== siste) {
+          mal.forEach(function(m){ m.a.classList.toggle('aktiv', m === valgt); });
+          siste = valgt;
+        }
+        /* farge etter underlaget, som hovedmenyen */
+        var y = window.scrollY + window.innerHeight / 2, paLyst = false;
+        [].slice.call(document.querySelectorAll('.lyst')).forEach(function(l){
+          var t = l.offsetTop;
+          if (y >= t && y <= t + l.offsetHeight) paLyst = true;
+        });
+        kapNav.classList.toggle('pa-lyst', paLyst);
+      };
+      var ventende = false;
+      window.addEventListener('scroll', function(){
+        if (ventende) return;
+        ventende = true;
+        requestAnimationFrame(function(){ oppdater(); ventende = false; });
+      }, {passive:true});
+      window.addEventListener('resize', oppdater, {passive:true});
+      oppdater();
+    }
+  }
+
+  /* ---------- .rull: rolig innfading ved rulling ---------- */
+  {
+    var rull = [].slice.call(document.querySelectorAll('.rull'));
+    if (rull.length) {
+      if ('IntersectionObserver' in window) {
+        var obs = new IntersectionObserver(function(rader){
+          rader.forEach(function(r){
+            if (r.isIntersecting) { r.target.classList.add('inne'); obs.unobserve(r.target); }
+          });
+        }, {threshold:.08, rootMargin:'0px 0px -6% 0px'});
+        rull.forEach(function(e){ e.classList.add('opp'); obs.observe(e); });
+      } else {
+        rull.forEach(function(e){ e.classList.add('opp','inne'); });
+      }
+    }
+  }
+})();
